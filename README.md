@@ -50,8 +50,9 @@ We use an Enterprise SaaS model, decoupled from compute costs:
 ### 📂 Project Assets & Live Demos
 This repository acts as the central hub for our project. You can explore our live materials here:
 
-*   🖥️ **VetoPoint Pitch Room & Business Case:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
+*   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Dashboard UI / Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
+*   📈 **Interactive Business Model:** [Explore the live Business Model here](https://attentoai.com/vetopoint/business-model.html)
 
 ### 👥 Team Trinorte
 *We are not asking businesses to trust another AI. We are giving them the infrastructure to decide when AI can be trusted to act.*
@@ -105,8 +106,9 @@ Usamos un modelo SaaS Empresarial, desvinculado de los costes de computación:
 ### 📂 Enlaces y Demos del Proyecto
 Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes acceder a las versiones en vivo:
 
-*   🖥️ **VetoPoint Pitch Room y Business Case:** [Explora la presentación interactiva aquí](https://attentoai.com/vetopoint/pitch.html)
+*   🖥️ **VetoPoint Pitch Room:** [Explora la presentación interactiva aquí](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Dashboard UI / Consola:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
+*   📈 **Modelo de Negocio Interactivo:** [Explora el modelo de negocio en vivo aquí](https://attentoai.com/vetopoint/business-model.html)
 
 ### 👥 Equipo Trinorte
 *No pedimos a las empresas que confíen en otra IA. Les damos la infraestructura para decidir cuándo se puede confiar en que la IA actúe.*
