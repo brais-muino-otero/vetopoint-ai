@@ -52,7 +52,6 @@ This repository acts as the central hub for our project. You can explore our liv
 
 *   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Dashboard UI / Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
-*   📈 **Interactive Business Model:** [Explore the live Business Model here](https://attentoai.com/vetopoint/business-model.html)
 
 ### 👥 Team Trinorte
 *We are not asking businesses to trust another AI. We are giving them the infrastructure to decide when AI can be trusted to act.*
@@ -108,7 +107,6 @@ Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes
 
 *   🖥️ **VetoPoint Pitch Room:** [Explora la presentación interactiva aquí](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Dashboard UI / Consola:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
-*   📈 **Modelo de Negocio Interactivo:** [Explora el modelo de negocio en vivo aquí](https://attentoai.com/vetopoint/business-model.html)
 
 ### 👥 Equipo Trinorte
 *No pedimos a las empresas que confíen en otra IA. Les damos la infraestructura para decidir cuándo se puede confiar en que la IA actúe.*
