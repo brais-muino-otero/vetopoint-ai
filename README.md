@@ -4,7 +4,7 @@
 
 🌍 **Choose your language / Elige tu idioma:**
 * [🇬🇧 Read in English](#-english-version)
-* [🇪🇸 Leer en Español](#-versión-en-español)
+* [🇪🇸 Leer en Español](#-versión-español)
 
 ---
 
