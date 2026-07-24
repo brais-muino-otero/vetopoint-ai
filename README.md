@@ -49,8 +49,11 @@ We use an Enterprise SaaS model, decoupled from compute costs:
 
 **Projection:** Raising a €750,000 seed round for the first 12-14 months (MVP + 3 pilots). We project reaching operational break-even at month 22 with only 9 Business-tier customers and 88% gross margins.
 
-### 📂 About this repository
-In this repository, you will find the **VetoPoint Pitch Room**, our interactive presentation experience. An HTML/CSS environment structured in 6 chapters that allows you to navigate the problem, the solution, and the business case, specifically designed to capture investors' attention dynamically.
+### 📂 Project Assets & Live Demos
+This repository acts as the central hub for our project. You can explore our live materials here:
+
+*   🖥️ **VetoPoint Pitch Room & Business Case:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
+*   📊 **Dashboard UI / Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
 
 ### 👥 Team Trinorte
 *We are not asking businesses to trust another AI. We are giving them the infrastructure to decide when AI can be trusted to act.*
@@ -101,8 +104,11 @@ Usamos un modelo SaaS Empresarial, desvinculado de los costes de computación:
 
 **Proyección:** Buscamos 750.000 € de seed para los primeros 12-14 meses (MVP y 3 pilotos). Proyectamos el break-even en el mes 22, con solo 9 clientes Business, y márgenes brutos del 88%.
 
-### 📂 Sobre este repositorio
-Aquí puedes encontrar el **VetoPoint Pitch Room**, nuestra experiencia interactiva de presentación. Un entorno en HTML/CSS en 6 capítulos que permite navegar por el problema, la solución y el caso de negocio, diseñado para captar la atención de inversores de forma dinámica.
+### 📂 Enlaces y Demos del Proyecto
+Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes acceder a las versiones en vivo:
+
+*   🖥️ **VetoPoint Pitch Room y Business Case:** [Explora la presentación interactiva aquí](https://attentoai.com/vetopoint/pitch.html)
+*   📊 **Dashboard UI / Consola:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
 
 ### 👥 Equipo Trinorte
 *No pedimos a las empresas que confíen en otra IA. Les damos la infraestructura para decidir cuándo se puede confiar en que la IA actúe.*
