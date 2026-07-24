@@ -1,8 +1,6 @@
-# vetopoint-ai
-Others secure the prompt. VetoPoint secures the action.
-
 # VetoPoint AI 🛡️
 > *Others secure the prompt. VetoPoint secures the action.*
+> *Otros aseguran el prompt. VetoPoint asegura la acción.*
 
 🌍 **Choose your language / Elige tu idioma:**
 * [🇬🇧 Read in English](#-english-version)
