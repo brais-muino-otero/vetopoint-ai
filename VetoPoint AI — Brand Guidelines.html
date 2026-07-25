@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://attentoai.com/vetopoint/branding.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VetoPoint AI — Brand Guidelines</title>
+<link rel="icon" type="image/png" href="./VetoPoint AI — Brand Guidelines_files/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./VetoPoint AI — Brand Guidelines_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --navy:#14264C;
+    --blue:#2E9BEA;
+    --coral:#F2503F;
+    --gray:#E9EAED;
+    --white:#FFFFFF;
+    --off-white:#FAFCFF;
+    --text-muted:#5A647A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Inter', system-ui, -apple-system, sans-serif;
+    background:var(--off-white);
+    color:var(--navy);
+    line-height:1.55;
+  }
+  a{color:var(--blue);}
+
+  /* Header */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 32px;
+    background:var(--navy);
+    border-bottom:3px solid var(--blue);
+    position:sticky;
+    top:0;
+    z-index:10;
+  }
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white);}
+  .brand img{height:34px;width:auto;display:block;}
+  .brand-text{font-size:1.05rem;font-weight:800;}
+  .brand-text .accent{color:var(--blue);}
+  .header-label{font-size:0.85rem;color:rgba(255,255,255,0.7);}
+
+  /* Layout */
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+  section{padding:56px 0;}
+  .eyebrow{
+    display:inline-block;
+    font-size:0.75rem;
+    font-weight:700;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin-bottom:8px;
+  }
+  h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.15;}
+  h2{font-size:1.5rem;font-weight:700;margin-bottom:20px;border-bottom:3px solid var(--blue);display:inline-block;padding-bottom:4px;}
+  .lead{font-size:1.05rem;color:var(--text-muted);max-width:640px;margin-top:10px;}
+
+  /* Hero / video */
+  .hero{
+    background:var(--navy);
+    color:var(--white);
+    padding:64px 0 72px;
+  }
+  .hero .lead{color:rgba(255,255,255,0.75);}
+  .video-shell{
+    margin-top:32px;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    border:1px solid rgba(46,155,234,0.35);
+    background:#000;
+  }
+  .video-shell video{display:block;width:100%;height:auto;}
+
+  /* Cards */
+  .grid{display:grid;gap:20px;}
+  .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  .card{
+    background:var(--white);
+    border:1px solid var(--gray);
+    border-radius:12px;
+    padding:24px;
+  }
+
+  /* Colors */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;}
+  .swatch{border:1px solid var(--gray);border-radius:12px;overflow:hidden;background:var(--white);}
+  .swatch .chip{height:96px;}
+  .swatch .info{padding:12px 14px;}
+  .swatch .name{font-weight:700;font-size:0.9rem;}
+  .swatch .role{font-size:0.78rem;color:var(--text-muted);margin:2px 0 4px;}
+  .swatch .hex{font-size:0.8rem;font-weight:600;letter-spacing:0.03em;}
+
+  /* Typography section */
+  .type-sample-heading{font-size:2.2rem;font-weight:800;margin:6px 0 2px;}
+  .type-note{font-size:0.78rem;color:var(--text-muted);}
+  .type-sample-body{margin:6px 0 2px;max-width:560px;}
+
+  /* Voice */
+  .voice-item{display:flex;gap:14px;align-items:flex-start;}
+  .voice-dot{
+    flex:0 0 12px;height:12px;border-radius:50%;
+    background:var(--coral);margin-top:6px;
+    box-shadow:0 0 0 3px rgba(242,80,63,0.2);
+  }
+  .voice-item h3{font-size:1rem;font-weight:700;}
+  .voice-item p{font-size:0.9rem;color:var(--text-muted);}
+
+  /* Slogan banner */
+  .slogan{
+    background:var(--navy);
+    color:var(--white);
+    text-align:center;
+    padding:40px 24px;
+    font-size:clamp(1.1rem,2.6vw,1.6rem);
+    font-weight:700;
+  }
+  .slogan .accent{color:var(--blue);}
+
+  /* Meaning steps */
+  .steps{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .step{
+    background:var(--white);border:1px solid var(--gray);border-radius:10px;
+    padding:14px 18px;font-size:0.9rem;font-weight:600;
+  }
+  .step-arrow{color:var(--blue);font-weight:800;font-size:1.2rem;}
+
+  /* Brand board image */
+  .board img{
+    width:100%;height:auto;display:block;
+    border:1px solid var(--gray);border-radius:12px;
+    box-shadow:0 12px 40px rgba(20,38,76,0.12);
+  }
+
+  footer{
+    background:var(--navy);
+    color:rgba(255,255,255,0.65);
+    text-align:center;
+    font-size:0.8rem;
+    padding:20px 24px;
+  }
+  footer .site{color:var(--blue);font-weight:600;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://attentoai.com/vetopoint/branding.html#" class="brand">
+    <img src="./VetoPoint AI — Brand Guidelines_files/logo.png" alt="VetoPoint AI logo">
+    <span class="brand-text">Veto<span class="accent">Point</span> AI</span>
+  </a>
+  <span class="header-label">Brand Guidelines</span>
+</header>
+
+<!-- Hero with animated logo video -->
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Brand identity</span>
+    <h1>VetoPoint AI brand guidelines</h1>
+    <p class="lead">The visual identity of the enterprise control layer that evaluates, approves, escalates or vetoes consequential AI actions before execution.</p>
+    <div class="video-shell">
+      <video src="vetopoint-logo-intro-1080p.mp4" autoplay="" muted="" loop="" playsinline="" controls="" poster="logo.png"></video>
+    </div>
+  </div>
+</div>
+
+<!-- Logo meaning -->
+<section>
+  <div class="wrap">
+    <h2>Logo meaning</h2>
+    <p class="lead" style="margin-bottom:24px;">A control point where AI actions are evaluated before execution.</p>
+    <div class="steps">
+      <div class="step">AI Actions</div>
+      <div class="step-arrow">→</div>
+      <div class="step">VetoPoint Control Point</div>
+      <div class="step-arrow">→</div>
+      <div class="step" style="border-color:var(--blue);color:var(--blue);">Safe, Approved Action</div>
+    </div>
+    <p style="margin-top:24px;max-width:760px;color:var(--text-muted);font-size:0.95rem;">
+      The deep-navy V represents VetoPoint and organisational authority. The coral circle is the decisive control point,
+      surrounded by a white boundary that signals governed review. The blue path rises through the checkpoint and becomes
+      an arrow — an approved AI action proceeding safely. The visual language deliberately avoids generic robots, locks and shields.
+    </p>
+  </div>
+</section>
+
+<!-- Color system -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <h2>Color system</h2>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="chip" style="background:#14264C;"></div>
+        <div class="info">
+          <div class="name">Governance Navy</div>
+          <div class="role">Authority, trust, enterprise stability</div>
+          <div class="hex">#14264C</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#2E9BEA;"></div>
+        <div class="info">
+          <div class="name">Action Blue</div>
+          <div class="role">Momentum, intelligence, controlled progress</div>
+          <div class="hex">#2E9BEA</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#F2503F;"></div>
+        <div class="info">
+          <div class="name">Signal Coral</div>
+          <div class="role">Checkpoint, alert, human decision point</div>
+          <div class="hex">#F2503F</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#E9EAED;"></div>
+        <div class="info">
+          <div class="name">Cloud Gray</div>
+          <div class="role">Clarity, neutrality, clean interfaces</div>
+          <div class="hex">#E9EAED</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--gray);"></div>
+        <div class="info">
+          <div class="name">Trust White</div>
+          <div class="role">Openness, balance, readability</div>
+          <div class="hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Typography -->
+<section>
+  <div class="wrap">
+    <h2>Typography</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="type-note">Headings (Bold)</span>
+        <div class="type-sample-heading">VetoPoint AI</div>
+        <span class="type-note">Recommended: Inter Bold</span>
+      </div>
+      <div class="card">
+        <span class="type-note">Body (Regular)</span>
+        <p class="type-sample-body">VetoPoint AI provides human-supervised control points that evaluate and authorize AI actions before they are executed.</p>
+        <span class="type-note">Recommended: Inter Regular</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brand voice -->
+<section style="background:var(--white);">
+  <div class="wrap">
+    <h2>Brand voice</h2>
+    <div class="grid grid-3">
+      <div class="card voice-item">
+        <div class="voice-dot"></div>
+        <div>
+          <h3>Decisive</h3>
+          <p>Clear action, confident outcomes.</p>
+        </div>
+      </div>
+      <div class="card voice-item">
+        <div class="voice-dot"></div>
+        <div>
+          <h3>Trustworthy</h3>
+          <p>Built for accountability and reliability.</p>
+        </div>
+      </div>
+      <div class="card voice-item">
+        <div class="voice-dot"></div>
+        <div>
+          <h3>Human-supervised</h3>
+          <p>AI moves fast, people stay in control.</p>
+        </div>
+      </div>
+      <div class="card voice-item">
+        <div class="voice-dot"></div>
+        <div>
+          <h3>Enterprise-ready</h3>
+          <p>Secure, scalable, and built to integrate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Slogan banner -->
+<div class="slogan">
+  Others secure the prompt. <span class="accent">VetoPoint</span> secures the action.
+</div>
+
+<!-- Full brand board -->
+<section>
+  <div class="wrap board">
+    <h2>Brand board</h2>
+    <p class="lead" style="margin-bottom:24px;">The complete identity sheet: logo, symbol mark, color system, typography, voice and applications.</p>
+    <img src="./VetoPoint AI — Brand Guidelines_files/branding.png" alt="VetoPoint AI brand board: primary logo, symbol mark, logo meaning, color system, typography, brand voice and applications">
+  </div>
+</section>
+
+<footer>
+  Built for enterprises that demand accountability, security, and control in every AI action. &nbsp;|&nbsp; <span class="site">vetopoint.ai</span>
+</footer>
+
+
+
+</body></html>
