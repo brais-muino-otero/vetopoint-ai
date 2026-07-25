@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://attentoai.com/vetopoint/pitch.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VetoPoint AI interactive investor pitch navigator: problem, solution, market opportunity, business model, competition and financials.">
+<title>VetoPoint AI — Investor Pitch</title>
+<link rel="icon" type="image/png" href="https://attentoai.com/vetopoint/logo.png">
+<style>
+  :root{
+    --navy:#07162f;
+    --navy-2:#0b2044;
+    --navy-3:#102b57;
+    --brand-navy:#14264C;
+    --blue:#2E9BEA;
+    --blue-2:#65bcff;
+    --coral:#F2503F;
+    --white:#FFFFFF;
+    --cloud:#F4F8FD;
+    --muted:#a9bad2;
+    --line:rgba(151,192,238,.18);
+    --panel:rgba(11,32,68,.72);
+    --panel-hover:rgba(16,43,87,.92);
+    --green:#42d69b;
+    --amber:#ffc65c;
+    --shadow:0 24px 70px rgba(0,0,0,.34);
+    --radius:24px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    min-height:100vh;
+    color:var(--white);
+    font-family:Inter,"Segoe UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%,rgba(46,155,234,.22),transparent 28rem),
+      radial-gradient(circle at 90% 18%,rgba(242,80,63,.09),transparent 24rem),
+      linear-gradient(145deg,var(--navy) 0%,#081a38 50%,#061228 100%);
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background-image:
+      linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);
+    background-size:52px 52px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+  }
+
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:30;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:14px clamp(18px,4vw,64px);
+    background:rgba(5,17,39,.72);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(18px) saturate(135%);
+  }
+  .topbar-title{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 5px rgba(242,80,63,.12),0 0 18px rgba(242,80,63,.55);animation:live 2s ease-in-out infinite}
+  @keyframes live{50%{transform:scale(.75);opacity:.62}}
+  .topbar-meta{color:var(--muted);font-size:13px}
+
+  .shell{width:min(1280px,calc(100% - 36px));margin:0 auto;padding:94px 0 54px}
+
+  .hero{
+    position:relative;
+    min-height:390px;
+    display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);
+    gap:32px;align-items:center;
+    border:1px solid var(--line);
+    border-radius:32px;
+    padding:clamp(24px,4vw,50px);
+    background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-240px;top:-250px;
+    background:radial-gradient(circle,rgba(46,155,234,.2),transparent 68%);pointer-events:none;
+  }
+  .logo-theater{
+    position:relative;z-index:2;
+    background:linear-gradient(145deg,#ffffff,#eff6ff);
+    border:1px solid rgba(255,255,255,.72);
+    border-radius:26px;
+    min-height:270px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:20px 24px 16px;
+    box-shadow:0 18px 55px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.8);
+  }
+  .stage{width:min(900px,100%);user-select:none;-webkit-user-select:none}
+  .stage svg{width:100%;height:auto;display:block;overflow:visible}
+  .wordmark{font-family:inherit;font-weight:800;letter-spacing:-2px}
+  .wm-navy{fill:var(--brand-navy)}
+  .wm-blue{fill:var(--blue)}
+  .wm-ai{font-size:46px;letter-spacing:2px;fill:var(--brand-navy)}
+  #wordmarkG{opacity:0;transform:translateX(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.9,.3,1.2)}
+  #wordmarkG.show{opacity:1;transform:translateX(0)}
+  #vMark{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  #vMark.show{opacity:1;transform:translateY(0)}
+  #halo{transition:r .38s cubic-bezier(.2,1.7,.4,1),opacity .25s ease}
+  .drawable{transition:stroke-dashoffset .65s ease}
+  #arrowHead{opacity:0;transition:opacity .25s ease .55s}
+  #arrowHead.show{opacity:1}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  #ballG.stuck #ballShape{animation:pulse 2.4s ease-in-out infinite}
+  #ballG{cursor:pointer}
+  .logo-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:-8px}
+  .logo-hint{font-size:12px;color:#7a8ba6}
+  .replay{
+    border:1px solid #c8d9ed;background:#fff;color:var(--brand-navy);
+    padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:700;font-size:12px;transition:.2s ease;
+  }
+  .replay:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
+
+  .hero-copy{position:relative;z-index:2}
+  .eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--blue-2);font-weight:800;margin-bottom:14px}
+  h1{font-size:clamp(34px,5vw,64px);line-height:1.02;letter-spacing:-.045em;max-width:690px}
+  .gradient-text{background:linear-gradient(100deg,#fff 0%,#7dc7ff 55%,#2E9BEA 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero-copy p{margin-top:20px;color:var(--muted);font-size:clamp(15px,1.8vw,18px);line-height:1.65;max-width:560px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    min-height:46px;padding:0 20px;border-radius:12px;border:1px solid transparent;
+    font-weight:800;font-size:14px;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--blue),#1685dc);color:#fff;box-shadow:0 12px 28px rgba(46,155,234,.28)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(46,155,234,.38)}
+  .btn-secondary{background:rgba(255,255,255,.055);border-color:var(--line);color:#fff}
+  .btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+
+  .pitch-toolbar{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    margin:34px 0 22px;padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:rgba(7,22,47,.62)
+  }
+  .toolbar-left h2{font-size:20px;letter-spacing:-.02em}
+  .toolbar-left p{margin-top:5px;color:var(--muted);font-size:13px}
+  .timer{display:flex;align-items:center;gap:12px}
+  .timer-display{font-variant-numeric:tabular-nums;font-weight:800;font-size:24px;letter-spacing:.04em;color:#fff;min-width:74px;text-align:center}
+  .timer-btn{border:1px solid var(--line);background:rgba(255,255,255,.055);color:#fff;width:38px;height:38px;border-radius:10px;cursor:pointer;transition:.2s ease}
+  .timer-btn:hover{background:rgba(46,155,234,.2);border-color:rgba(46,155,234,.55)}
+
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .pitch-card{
+    --mx:50%;--my:50%;
+    position:relative;isolation:isolate;
+    min-height:330px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    background:linear-gradient(145deg,rgba(16,43,87,.84),rgba(7,22,47,.92));
+    box-shadow:0 20px 46px rgba(0,0,0,.24);
+    transform-style:preserve-3d;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  }
+  .pitch-card::before{
+    content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .25s ease;
+    background:radial-gradient(circle at var(--mx) var(--my),rgba(71,174,255,.22),transparent 34%);
+  }
+  .pitch-card:hover,.pitch-card:focus-visible{transform:translateY(-7px);border-color:rgba(90,184,255,.62);box-shadow:0 28px 60px rgba(0,0,0,.34),0 0 0 1px rgba(46,155,234,.12)}
+  .pitch-card:hover::before,.pitch-card:focus-visible::before{opacity:1}
+  .pitch-card:focus-visible{outline:3px solid rgba(46,155,234,.4);outline-offset:4px}
+
+  .thumbnail{
+    height:190px;position:relative;overflow:hidden;padding:18px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(145deg,rgba(3,14,33,.68),rgba(15,47,93,.55));
+  }
+  .thumbnail::after{content:"";position:absolute;inset:auto -60px -100px auto;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(46,155,234,.18),transparent 68%)}
+  .thumb-tag{position:absolute;top:16px;left:16px;z-index:3;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#cbe8ff;border:1px solid rgba(84,177,245,.35);background:rgba(46,155,234,.11);padding:6px 8px;border-radius:999px}
+  .card-num{position:absolute;top:14px;right:16px;z-index:3;font-size:12px;font-weight:800;color:rgba(255,255,255,.48)}
+  .card-copy{padding:22px 22px 24px;display:flex;align-items:flex-end;justify-content:space-between;gap:18px}
+  .card-copy h3{font-size:23px;letter-spacing:-.025em}
+  .card-copy p{margin-top:7px;color:var(--muted);font-size:13.5px;line-height:1.5}
+  .open-icon{flex:0 0 auto;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.05);font-size:21px;transition:.22s ease}
+  .pitch-card:hover .open-icon{transform:translate(3px,-3px);background:var(--blue);border-color:var(--blue);box-shadow:0 10px 24px rgba(46,155,234,.3)}
+
+  /* Problem preview */
+  .risk-line{position:absolute;left:26px;right:26px;top:88px;height:2px;background:linear-gradient(90deg,var(--blue),var(--coral));box-shadow:0 0 18px rgba(46,155,234,.35)}
+  .risk-node{position:absolute;top:78px;width:22px;height:22px;border-radius:50%;border:4px solid #0a1c3d;background:var(--blue);box-shadow:0 0 0 1px rgba(255,255,255,.22)}
+  .risk-node.n1{left:28px}.risk-node.n2{left:44%;background:var(--amber)}.risk-node.n3{right:28px;background:var(--coral);animation:riskPulse 2s ease-in-out infinite}
+  @keyframes riskPulse{50%{box-shadow:0 0 0 10px rgba(242,80,63,0),0 0 22px rgba(242,80,63,.8)}}
+  .warning-box{position:absolute;right:26px;bottom:24px;width:130px;padding:10px;border:1px solid rgba(242,80,63,.35);border-radius:11px;background:rgba(242,80,63,.1)}
+  .warning-box strong{font-size:24px;color:#ff7b6d}.warning-box small{display:block;color:#ffc0b9;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+
+  /* Solution preview */
+  .gate-flow{position:absolute;inset:60px 20px 20px;display:grid;grid-template-columns:1fr 58px 1fr;align-items:center;gap:12px}
+  .agent-box,.system-box{height:76px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.045);display:grid;place-items:center;text-align:center;font-size:11px;color:#c4d4e9}
+  .gate-mark{width:58px;height:76px;display:grid;place-items:center;position:relative}
+  .gate-v{width:44px;height:58px;background:linear-gradient(160deg,#dbeeff,#fff);clip-path:polygon(0 0,28% 0,50% 62%,72% 0,100% 0,50% 100%);filter:drop-shadow(0 8px 12px rgba(0,0,0,.28))}
+  .gate-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--coral);top:31px;box-shadow:0 0 0 5px #fff}
+  .flow-particle{position:absolute;left:25%;top:50%;width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue);animation:flow 2.4s linear infinite}
+  @keyframes flow{0%{left:20%;opacity:0}12%{opacity:1}45%{left:48%}60%{left:52%}100%{left:81%;opacity:0}}
+
+  /* Market preview */
+  .market-rings{position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);width:160px;height:160px}
+  .market-rings span{position:absolute;inset:0;border:1px solid rgba(101,188,255,.2);border-radius:50%;animation:ring 3.4s ease-out infinite}
+  .market-rings span:nth-child(2){inset:22px;animation-delay:.45s}.market-rings span:nth-child(3){inset:44px;animation-delay:.9s}
+  @keyframes ring{50%{border-color:rgba(101,188,255,.55);box-shadow:0 0 25px rgba(46,155,234,.1)}}
+  .market-center{position:absolute;inset:63px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 8px rgba(242,80,63,.12)}
+  .sector{position:absolute;font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#d7ecff;background:rgba(8,29,61,.82);border:1px solid var(--line);padding:7px 9px;border-radius:999px}
+  .sector.s1{left:18px;top:74px}.sector.s2{right:15px;top:44px}.sector.s3{right:28px;bottom:24px}
+
+  /* Business preview */
+  .revenue-bars{position:absolute;left:24px;right:24px;bottom:28px;height:92px;display:flex;align-items:flex-end;gap:13px}
+  .revenue-bars span{flex:1;border-radius:7px 7px 2px 2px;background:linear-gradient(to top,#1a6ea9,var(--blue-2));box-shadow:0 0 18px rgba(46,155,234,.18);transform-origin:bottom;animation:bars 2.8s ease-in-out infinite}
+  .revenue-bars span:nth-child(1){height:34%;animation-delay:.1s}.revenue-bars span:nth-child(2){height:52%;animation-delay:.25s}.revenue-bars span:nth-child(3){height:68%;animation-delay:.4s}.revenue-bars span:nth-child(4){height:84%;animation-delay:.55s}.revenue-bars span:nth-child(5){height:100%;animation-delay:.7s}
+  @keyframes bars{50%{transform:scaleY(.91);filter:brightness(1.18)}}
+  .arr-chip{position:absolute;top:60px;right:24px;font-weight:900;color:var(--green);font-size:21px}.arr-chip small{display:block;color:#a9bad2;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+
+  /* Competition preview */
+  .radar{position:absolute;left:50%;top:57%;transform:translate(-50%,-50%);width:150px;height:150px;border:1px solid rgba(101,188,255,.2);border-radius:50%;background:repeating-radial-gradient(circle,transparent 0 23px,rgba(101,188,255,.13) 24px 25px),linear-gradient(90deg,transparent 49.5%,rgba(101,188,255,.15) 50%,transparent 50.5%),linear-gradient(transparent 49.5%,rgba(101,188,255,.15) 50%,transparent 50.5%)}
+  .sweep{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(46,155,234,.36),transparent 23%);animation:sweep 3.2s linear infinite}
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  .target{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 6px rgba(242,80,63,.12),0 0 16px rgba(242,80,63,.7)}
+  .target.t1{left:31px;top:38px}.target.t2{right:24px;top:73px}.target.t3{left:65px;bottom:17px;background:var(--blue-2)}
+
+  /* Financials preview */
+  .chart-svg{position:absolute;inset:45px 17px 12px;width:calc(100% - 34px);height:135px;overflow:visible}
+  .chart-grid line{stroke:rgba(255,255,255,.09);stroke-width:1}
+  .chart-area{fill:url(#areaGradient)}
+  .chart-line{fill:none;stroke:var(--blue-2);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:340;stroke-dashoffset:340;animation:drawChart 2.3s ease forwards .5s}
+  @keyframes drawChart{to{stroke-dashoffset:0}}
+  .break-even{position:absolute;left:57%;top:61px;font-size:9px;color:#b8f5db;background:rgba(66,214,155,.11);border:1px solid rgba(66,214,155,.28);padding:5px 7px;border-radius:999px}
+
+  .footer{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:32px;padding:22px 4px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  .footer strong{color:#fff}
+  .keys{display:flex;gap:6px;align-items:center}
+  kbd{min-width:26px;height:26px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);border-bottom-color:rgba(255,255,255,.35);border-radius:7px;background:rgba(255,255,255,.045);color:#dcecff;font:700 11px/1 inherit}
+
+  .progress-rail{position:fixed;left:0;bottom:0;width:100%;height:3px;background:rgba(255,255,255,.06);z-index:40}
+  .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--coral));transition:width .1s linear}
+
+  @media (max-width:1050px){.hero{grid-template-columns:1fr}.hero-copy{order:-1}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:680px){
+    .shell{width:min(100% - 22px,1280px);padding-top:82px}.topbar-meta{display:none}.hero{padding:20px;border-radius:24px}.logo-theater{min-height:210px;padding:12px}.logo-controls{margin-top:-18px}.logo-hint{display:none}.cards{grid-template-columns:1fr}.pitch-toolbar{align-items:flex-start}.timer{width:100%;justify-content:space-between}.thumbnail{height:175px}.pitch-card{min-height:310px}.footer{align-items:flex-start}.keys{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="progress-rail" aria-hidden="true"><div class="progress-bar" id="progressBar" style="width: 99.9727%;"></div></div>
+<header class="topbar">
+  <div class="topbar-title"><span class="live-dot" aria-hidden="true"></span>VetoPoint AI Pitch Room</div>
+  <div class="topbar-meta">Six chapters · one controlled story</div>
+</header>
+
+<main class="shell">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="logo-theater">
+      <div class="stage">
+        <svg id="logo" viewBox="0 0 1180 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VetoPoint AI animated logo">
+          <g id="vMark" class="show"><path d="M78,60 L132,60 L205,243 L278,60 L332,60 L205,340 Z" fill="var(--brand-navy)"></path></g>
+          <line id="tick" x1="155" y1="96" x2="191" y2="186" stroke="var(--blue)" stroke-width="13" stroke-linecap="round" class="drawable" style="stroke-dasharray: 96.933; stroke-dashoffset: 0;"></line>
+          <polyline id="arrow" points="205,196 238,118 266,140 330,73" fill="none" stroke="var(--blue)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" class="drawable" style="stroke-dasharray: 212.958; stroke-dashoffset: 0;"></polyline>
+          <polygon id="arrowHead" points="348,54 339.6,81.8 320.7,64" fill="var(--blue)" class="show"></polygon>
+          <circle id="halo" cx="205" cy="186" r="34" fill="#fff" opacity="1"></circle>
+          <g id="ballG" transform="translate(205,186)" class="stuck"><g id="ballShape" transform="scale(1,1)"><circle r="21" fill="var(--coral)"></circle></g></g>
+          <g id="wordmarkG" class="show"><text x="392" y="232" font-size="126" class="wordmark"><tspan class="wm-navy">Veto</tspan><tspan class="wm-blue">Point</tspan><tspan class="wm-ai" dx="18">AI</tspan></text></g>
+        </svg>
+      </div>
+      <div class="logo-controls">
+        <span class="logo-hint">Click the coral checkpoint to make it hop.</span>
+        <button class="replay" id="replayBtn" type="button" aria-label="Replay logo animation">↻ Replay</button>
+      </div>
+    </div>
+
+    <div class="hero-copy">
+      <div class="eyebrow">Interactive investor narrative</div>
+      <h1 id="page-title"><span class="gradient-text">Control the story.</span><br>Prove the business.</h1>
+      <p>Navigate the VetoPoint pitch from the emerging risk to the financial case. Each chapter opens as a focused, interactive standalone page.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://attentoai.com/vetopoint/problem.html">Start the pitch <span aria-hidden="true">→</span></a>
+        <a class="btn btn-secondary" href="https://attentoai.com/vetopoint/pitch.html#chapters">View all chapters</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="chapters" aria-labelledby="chapters-title">
+    <div class="pitch-toolbar">
+      <div class="toolbar-left">
+        <h2 id="chapters-title">Pitch chapters</h2>
+        <p>Open in sequence, or jump directly with keys 1–6.</p>
+      </div>
+      <div class="timer" aria-label="Five minute pitch timer">
+        <button class="timer-btn" id="timerToggle" type="button" aria-label="Start or pause timer">▶</button>
+        <div class="timer-display" id="timerDisplay">05:00</div>
+        <button class="timer-btn" id="timerReset" type="button" aria-label="Reset timer">↻</button>
+      </div>
+    </div>
+
+    <div class="cards">
+      <a class="pitch-card" href="https://attentoai.com/vetopoint/problem.html" data-key="1" aria-label="Open Problem chapter">
+        <div class="thumbnail">
+          <span class="thumb-tag">Why now</span><span class="card-num">01</span>
+          <div class="risk-line"></div><span class="risk-node n1"></span><span class="risk-node n2"></span><span class="risk-node n3"></span>
+          <div class="warning-box"><strong>92</strong><small>critical risk</small></div>
+        </div>
+        <div class="card-copy"><div><h3>Problem</h3><p>AI agents can act before organisations can intervene.</p></div><span class="open-icon" aria-hidden="true">↗</span></div>
+      </a>
+
+      <a class="pitch-card" href="https://attentoai.com/vetopoint/index.html" data-key="2" aria-label="Open Solution chapter">
+        <div class="thumbnail">
+          <span class="thumb-tag">Control layer</span><span class="card-num">02</span>
+          <div class="gate-flow"><div class="agent-box">AI agent<br>proposes action</div><div class="gate-mark"><div class="gate-v"></div><div class="gate-dot"></div></div><div class="system-box">Approved action<br>reaches system</div><span class="flow-particle"></span></div>
+        </div>
+        <div class="card-copy"><div><h3>Solution</h3><p>Approve, escalate or veto before execution.</p></div><span class="open-icon" aria-hidden="true">↗</span></div>
+      </a>
+
+      <a class="pitch-card" href="https://attentoai.com/vetopoint/market.html" data-key="3" aria-label="Open Market Opportunity chapter" style="--mx: 54.1334228515625px; --my: 288.60001373291016px;">
+        <div class="thumbnail">
+          <span class="thumb-tag">Beachhead</span><span class="card-num">03</span>
+          <div class="market-rings"><span></span><span></span><span></span><div class="market-center"></div></div>
+          <span class="sector s1">Banks</span><span class="sector s2">Insurance</span><span class="sector s3">Government</span>
+        </div>
+        <div class="card-copy"><div><h3>Market Opportunity</h3><p>Start where action risk, regulation and willingness to pay converge.</p></div><span class="open-icon" aria-hidden="true">↗</span></div>
+      </a>
+
+      <a class="pitch-card" href="https://attentoai.com/vetopoint/business.html" data-key="4" aria-label="Open Business Model chapter">
+        <div class="thumbnail">
+          <span class="thumb-tag">Recurring revenue</span><span class="card-num">04</span>
+          <div class="arr-chip">75%+<small>mature recurring mix</small></div>
+          <div class="revenue-bars"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <div class="card-copy"><div><h3>Business Model</h3><p>Pilots convert into high-value annual enterprise contracts.</p></div><span class="open-icon" aria-hidden="true">↗</span></div>
+      </a>
+
+      <a class="pitch-card" href="https://attentoai.com/vetopoint/competition.html" data-key="5" aria-label="Open Competition chapter">
+        <div class="thumbnail">
+          <span class="thumb-tag">Positioning</span><span class="card-num">05</span>
+          <div class="radar"><div class="sweep"></div><span class="target t1"></span><span class="target t2"></span><span class="target t3"></span></div>
+        </div>
+        <div class="card-copy"><div><h3>Competition</h3><p>Others secure the prompt. VetoPoint secures the action.</p></div><span class="open-icon" aria-hidden="true">↗</span></div>
+      </a>
+
+      <a class="pitch-card" href="https://attentoai.com/vetopoint/financial.html" data-key="6" aria-label="Open Financials chapter" style="--mx: 82.9332275390625px; --my: 151.35147094726562px;">
+        <div class="thumbnail">
+          <span class="thumb-tag">Scale</span><span class="card-num">06</span>
+          <span class="break-even">Year 3 break-even</span>
+          <svg class="chart-svg" viewBox="0 0 300 130" aria-hidden="true">
+            <defs><lineargradient id="areaGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E9BEA" stop-opacity=".38"></stop><stop offset="1" stop-color="#2E9BEA" stop-opacity="0"></stop></lineargradient></defs>
+            <g class="chart-grid"><line x1="0" y1="25" x2="300" y2="25"></line><line x1="0" y1="65" x2="300" y2="65"></line><line x1="0" y1="105" x2="300" y2="105"></line></g>
+            <path class="chart-area" d="M8 112 L65 105 L120 91 L178 65 L235 34 L292 12 L292 122 L8 122 Z"></path>
+            <path class="chart-line" d="M8 112 L65 105 L120 91 L178 65 L235 34 L292 12"></path>
+          </svg>
+        </div>
+        <div class="card-copy"><div><h3>Financials</h3><p>Enterprise economics, investment logic and the path to scale.</p></div><span class="open-icon" aria-hidden="true">↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div><strong>VetoPoint AI</strong> · Before AI acts, it passes VetoPoint.</div>
+    <div class="keys" aria-label="Keyboard shortcuts"><span>Shortcuts</span><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd><kbd>5</kbd><kbd>6</kbd></div>
+  </footer>
+</main>
+
+<script>
+(() => {
+  /* Animated logo adapted from the supplied VetoPoint logo animation. */
+  const ballG = document.getElementById('ballG');
+  const ballShape = document.getElementById('ballShape');
+  const halo = document.getElementById('halo');
+  const vMark = document.getElementById('vMark');
+  const wordmark = document.getElementById('wordmarkG');
+  const tick = document.getElementById('tick');
+  const arrow = document.getElementById('arrow');
+  const arrowHead = document.getElementById('arrowHead');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const REST = {x:205,y:186};
+  const START = {x:760,y:344};
+  const ARC_H = 300;
+  let animating = false, locked = false;
+
+  const setBall = (x,y,sx=1,sy=1) => {
+    ballG.setAttribute('transform',`translate(${x},${y})`);
+    ballShape.setAttribute('transform',`scale(${sx},${sy})`);
+  };
+  function prepStroke(el){const len=el.getTotalLength();el.style.strokeDasharray=len;el.style.strokeDashoffset=len;}
+  const drawStroke = el => el.style.strokeDashoffset=0;
+  function reveal(){setTimeout(()=>{drawStroke(tick);drawStroke(arrow);arrowHead.classList.add('show');},160);setTimeout(()=>wordmark.classList.add('show'),480);}
+  function lock(){locked=true;animating=false;setBall(REST.x,REST.y);halo.setAttribute('opacity','1');halo.setAttribute('r','34');ballG.classList.add('stuck');}
+  function jump(from,to,{dur=950,height=ARC_H,squash=true}={}){
+    return new Promise(res=>{
+      const t0=performance.now();
+      function frame(now){
+        const t=Math.min(1,(now-t0)/dur);const x=from.x+(to.x-from.x)*t;const y=from.y+(to.y-from.y)*t-height*4*t*(1-t);const v=Math.abs(1-2*t);
+        setBall(x,y,1-.10*v,1+.14*v);
+        if(t<1){requestAnimationFrame(frame);}else if(squash){setBall(to.x,to.y+4,1.25,.72);setTimeout(()=>{setBall(to.x,to.y,.95,1.06);setTimeout(()=>{setBall(to.x,to.y);res();},70);},85);}else{setBall(to.x,to.y);res();}
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+  async function intro(){
+    if(animating)return;animating=true;locked=false;ballG.classList.remove('stuck');halo.setAttribute('r','0');halo.setAttribute('opacity','0');prepStroke(tick);prepStroke(arrow);arrowHead.classList.remove('show');wordmark.classList.remove('show');vMark.classList.remove('show');setBall(START.x,START.y);
+    if(reduced){vMark.classList.add('show');lock();drawStroke(tick);drawStroke(arrow);arrowHead.classList.add('show');wordmark.classList.add('show');return;}
+    requestAnimationFrame(()=>vMark.classList.add('show'));await new Promise(r=>setTimeout(r,550));await jump(START,{x:640,y:344},{dur:340,height:55,squash:false});await jump({x:640,y:344},{x:520,y:344},{dur:340,height:70,squash:false});await jump({x:520,y:344},REST,{dur:1000,height:ARC_H});lock();reveal();
+  }
+  ballG.addEventListener('click',async()=>{if(!locked||animating||reduced)return;animating=true;ballG.classList.remove('stuck');await jump(REST,REST,{dur:520,height:70});lock();});
+  document.getElementById('replayBtn').addEventListener('click',intro);
+  prepStroke(tick);prepStroke(arrow);intro();
+
+  /* Card spotlight and gentle perspective */
+  document.querySelectorAll('.pitch-card').forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      const r=card.getBoundingClientRect();const x=e.clientX-r.left;const y=e.clientY-r.top;
+      card.style.setProperty('--mx',`${x}px`);card.style.setProperty('--my',`${y}px`);
+      if(matchMedia('(pointer:fine)').matches){const rx=((y/r.height)-.5)*-3;const ry=((x/r.width)-.5)*4;card.style.transform=`translateY(-7px) rotateX(${rx}deg) rotateY(${ry}deg)`;}
+    });
+    card.addEventListener('pointerleave',()=>card.style.transform='');
+  });
+
+  /* Keyboard shortcuts */
+  const shortcuts={1:'problem.html',2:'index.html',3:'market.html',4:'business.html',5:'competition.html',6:'financial.html'};
+  window.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName))return;if(shortcuts[e.key])window.location.href=shortcuts[e.key];});
+
+  /* Five-minute pitch timer */
+  let remaining=300, timerId=null;
+  const timerDisplay=document.getElementById('timerDisplay');
+  const timerToggle=document.getElementById('timerToggle');
+  const renderTimer=()=>{const m=Math.floor(remaining/60);const s=remaining%60;timerDisplay.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;timerDisplay.style.color=remaining<=60?'#ff8d80':'#fff';};
+  timerToggle.addEventListener('click',()=>{
+    if(timerId){clearInterval(timerId);timerId=null;timerToggle.textContent='▶';return;}
+    timerToggle.textContent='Ⅱ';timerId=setInterval(()=>{remaining=Math.max(0,remaining-1);renderTimer();if(!remaining){clearInterval(timerId);timerId=null;timerToggle.textContent='▶';timerDisplay.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:700,iterations:3});}},1000);
+  });
+  document.getElementById('timerReset').addEventListener('click',()=>{if(timerId){clearInterval(timerId);timerId=null;}remaining=300;timerToggle.textContent='▶';renderTimer();});
+
+  /* Scroll progress */
+  const progressBar=document.getElementById('progressBar');
+  const updateProgress=()=>{const max=document.documentElement.scrollHeight-innerHeight;progressBar.style.width=`${max>0?(scrollY/max)*100:0}%`;};
+  addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+})();
+</script>
+
+
+</body></html>
