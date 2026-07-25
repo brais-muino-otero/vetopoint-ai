@@ -10,107 +10,120 @@
 
 ## 🇬🇧 English Version
 
-VetoPoint AI is the ultimate control layer between Artificial Intelligence agents and critical enterprise systems. Born as a final project for the **Artificial Intelligence Accelerator Program**, this project solves a critical gap in AI adoption: the lack of governance in autonomous actions.
+**VetoPoint AI** is the ultimate control layer between Artificial Intelligence agents and critical enterprise systems. Developed as the final project for the **Artificial Intelligence Accelerator Program**, it bridges a critical gap in enterprise AI adoption: the lack of governance over autonomous actions.
 
-### 🚨 The Problem: The risk of autonomous action
-AI adoption moved faster than governance. Today, 75% of knowledge workers use AI at work, and 78% bring unapproved tools. 
+### 🚨 The Problem: The Risk of Autonomous Action
+AI adoption is moving faster than governance. Today, 75% of knowledge workers already use AI at work, and 78% bring their own unapproved tools. 
 
-Traditional cybersecurity stops at the prompt (the input). But as agents move from reading to writing, the risk changes. A single hallucination can authorize a payout, leak data, or send emails, leaving the company liable with no audit trail. 
+Traditional cybersecurity stops at the prompt (the input). But as AI agents evolve from reading to writing and executing tasks, the risk profile changes entirely. A single hallucination can authorize a payout, leak confidential data, or send critical emails, leaving the company liable with no audit trail.
 
 ### 💡 The Solution: VetoPoint AI
-VetoPoint acts as an intermediate control layer. Every request goes through a 4-step flow before execution:
+VetoPoint acts as an intelligent intermediary firewall. Every AI request goes through a strict 4-step workflow before execution:
 
 1. **Intercept:** Captures the agent's call before it impacts company systems or funds.
-2. **Recognize Intent:** Semantic evaluation reads the actual context of the action.
-3. **Score & Verify:** Combines AI risk analysis with **hard deterministic rules** (which always win).
-4. **Act & Log:** Makes a decision and leaves an immutable audit trail.
+2. **Recognize Intent:** Uses NLP models to evaluate the true semantic context of the action.
+3. **Score & Verify:** Combines dynamic AI risk analysis with **hard deterministic rules**.
+4. **Act & Log:** Makes a decision and generates an immutable audit trail for compliance.
 
 #### The Competitive Advantage: The "Escalate" State
-While market alternatives (like AWS Cedar) evaluate rules in a binary way (Allow or Block), VetoPoint introduces a vital state: **Review / Escalate**. 
+While market alternatives evaluate rules in a rigid, binary way (Allow or Block), VetoPoint introduces a vital third state: **Review / Escalate**. 
 
-If an agent tries to wire €48,000 to a new supplier, the action doesn't crash; **it is held**. A named human is alerted via our interactive Dashboard, and only upon approval does the action resume.
+If an agent attempts a high-risk action (e.g., wiring €48,000 to a new supplier), the action doesn't crash; **it is held**. A designated human is alerted via our interactive Dashboard, and the action only resumes upon manual approval.
 
 ### 🌍 Market & Competition
-The timing for VetoPoint is purely regulatory. With the **EU AI Act** phasing in (transparency by August 2026, high-risk governance by December 2027), enterprises need this infrastructure.
+The timing for VetoPoint is purely regulatory. With the **EU AI Act** phasing in (transparency obligations by August 2026, high-risk governance by December 2027), enterprises are pressured to build exactly this infrastructure.
 
-*   **Serviceable Obtainable Market (SOM):** ~€3.9M in ARR over a 3-year target, focusing on EU enterprises (banks, insurers, government).
-*   **Positioning:** We cost €0.0003 per action (12x more than binary solutions) because we do semantic evaluation and provide an approval interface that prevents multi-million dollar mistakes without breaking the workflow.
+* **Target Market:** Regulated B2B enterprises (Banking, Healthcare, Government, Legal).
+* **Positioning:** We cost €0.0003 per action (12x more than binary solutions) because our semantic evaluation and approval interface prevent multi-million dollar mistakes without breaking the operational workflow.
 
 ### 📈 Business Model & Financials
-We use an Enterprise SaaS model, decoupled from compute costs:
+We operate on a high-value Enterprise SaaS model. 
 
-*   **Go-to-Market:** €25,000 paid pilot (3 months) to prove value in a specific department.
-*   **Annual Subscriptions:** Based on governed write-paths, scaling with the client's risk exposure.
-    *   *Core:* €40,000
-    *   *Business:* €95,000
-    *   *Enterprise:* +€250,000
+| Plan | Pricing | Target Customer |
+| :--- | :--- | :--- |
+| **Paid Pilot** | €25,000 (3 months) | Proof of value for one department (up to 3 AI agents) |
+| **Core** | €40,000 / year | Small regulated companies (5 AI agents) |
+| **Business** | €95,000 / year | Medium organizations (25 AI agents) |
+| **Enterprise** | €250,000+ / year | Banks, governments, and large corporations (Custom volume) |
 
-**Projection:** Raising a €750,000 seed round for the first 12-14 months (MVP + 3 pilots). We project reaching operational break-even at month 22 with only 9 Business-tier customers and 88% gross margins.
+**Investment Projection:** Raising a **€750,000 seed round** to fund the first 12 months (MVP + 3 enterprise pilots). We project operational break-even at month 22 with only 9 Business-tier customers and 88% gross margins.
 
-### 📂 Project Assets & Live Demos
-This repository acts as the central hub for our project. You can explore our live materials here:
+### 📂 Repository Structure & Live Links
+This repository acts as the central hub for all our final project assets:
 
-*   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
-*   📊 **Dashboard UI / Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
+* 📄 **`VetoPoint AI — Competition Master Document.pdf`**: Comprehensive overview of the identity, problem, and AI solution.
+* 📊 **`VetoPoint AI — Business Plan.pdf`**: In-depth strategy, governance, and financial models.
+* 📽️ **`VetoPoint AI — Project Presentation.pdf`**: The visual slide deck used for the final pitch.
+
+**Live Demos:**
+* 🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation](https://attentoai.com/vetopoint/pitch.html)
+* ⚙️ **Dashboard Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
+* 🎬 **1-Minute Promotional Video:** [Watch on YouTube](https://www.youtube.com/watch?v=VPr0d0HLWWo)
 
 ### 👥 Team Trinorte
-*We are not asking businesses to trust another AI. We are giving them the infrastructure to decide when AI can be trusted to act.*
+*"We are not asking businesses to trust another AI. We are giving them the infrastructure to decide when AI can be trusted to act."*
 
-*   **Adrián Garrote Camoira** - Team Leader & Business Strategist (Business model, governance, and enterprise value).
-*   **Brais Muiño Otero** - AI & Product Lead (AI-product design, technical architecture, and implementation).
-*   **Rubina Danilova** - Marketing & Presentation Lead (Communication, visual identity, and investor-style pitch delivery).
+* **Adrián Garrote Camoira** — Team Leader & Business Strategist
+* **Brais Muiño Otero** — AI & Product Lead
+* **Rubina Danilova** — Marketing & Presentation Lead
 
----
 ---
 
 ## 🇪🇸 Versión en Español
 
-VetoPoint AI es la capa de control definitiva entre los agentes de Inteligencia Artificial y los sistemas empresariales críticos. Nacido como proyecto final para el **Artificial Intelligence Accelerator Program**, este proyecto resuelve una brecha crítica en la adopción de la IA: la falta de gobernanza en las acciones autónomas.
+**VetoPoint AI** es la capa de control definitiva entre los agentes de Inteligencia Artificial y los sistemas empresariales críticos. Desarrollado como proyecto final para el **Artificial Intelligence Accelerator Program**, resuelve una brecha fundamental en la adopción de la IA: la falta de gobernanza sobre las acciones autónomas.
 
-### 🚨 El Problema: El riesgo de la acción autónoma
-La adopción de la IA avanzó más rápido que la gobernanza. Hoy, el 75% de los trabajadores usa IA y el 78% trae herramientas no aprobadas. 
+### 🚨 El Problema: El Riesgo de la Acción Autónoma
+La adopción de la IA avanza más rápido que su propia seguridad. Hoy en día, el 75% de los trabajadores ya usa IA y el 78% utiliza herramientas no aprobadas por su empresa. 
 
-La ciberseguridad tradicional se detiene en el *prompt* (la entrada). Pero al pasar de leer a escribir, el riesgo cambia. Una alucinación puede autorizar un pago, filtrar datos o enviar correos, dejando a la empresa responsable y sin rastro de auditoría.
+La ciberseguridad tradicional se detiene en el *prompt* (la entrada de texto). Pero a medida que los agentes pasan de simplemente leer a escribir y ejecutar tareas, el riesgo cambia por completo. Una sola alucinación puede autorizar un pago, filtrar datos o enviar correos críticos, dejando a la empresa como responsable legal y sin ningún rastro de auditoría.
 
 ### 💡 La Solución: VetoPoint AI
-VetoPoint es la capa de control entre agentes y sistemas. Cada petición pasa por cuatro pasos:
+VetoPoint actúa como un cortafuegos intermediario inteligente. Cada petición de la IA pasa por un estricto flujo de 4 pasos antes de ejecutarse:
 
-1. **Interceptar:** Captura la llamada del agente antes de que impacte en los sistemas.
-2. **Reconocer Intención:** Evaluación semántica que lee el contexto real de la acción.
-3. **Puntuar y Verificar:** Combina el análisis de riesgo de la IA con **reglas deterministas** (límites duros).
-4. **Actuar y Registrar:** Toma una decisión y deja un rastro de auditoría.
+1. **Interceptar:** Captura la llamada del agente antes de que impacte en los sistemas o fondos de la empresa.
+2. **Reconocer Intención:** Evalúa semánticamente el contexto real de la acción mediante NLP.
+3. **Puntuar y Verificar:** Combina el análisis dinámico de riesgo de la IA con **reglas deterministas estrictas**.
+4. **Actuar y Registrar:** Toma una decisión y genera un rastro de auditoría inmutable.
 
 #### La Ventaja Competitiva: El estado "Escalar"
-Mientras las alternativas (como AWS Cedar) evalúan de forma binaria (Permitir o Bloquear), VetoPoint introduce el estado vital: **Revisar / Escalar**. 
+Mientras las alternativas del mercado evalúan las reglas de forma binaria (Permitir o Bloquear), VetoPoint introduce un tercer estado vital: **Revisar / Escalar**. 
 
-Si un agente intenta transferir 48.000 € a un proveedor nuevo, la acción no falla; **se retiene**. Se alerta a un humano concreto, y solo si aprueba, la acción continúa su curso normal.
+Si un agente intenta una acción de alto riesgo (ej. transferir 48.000 € a un proveedor nuevo), la acción no da error ni se cancela; **se retiene**. Se alerta a un humano responsable a través de nuestro Dashboard interactivo, y la acción solo continúa si este la aprueba manualmente.
 
 ### 🌍 Mercado y Competencia
-El momento es regulatorio. Con la **Ley de IA de la UE** entrando en vigor (transparencia en agosto 2026, gobernanza de alto riesgo en diciembre 2027), construimos la capa que exige esta regulación.
+El momento actual es puramente regulatorio. Con la entrada en vigor de la **Ley de IA de la UE** (obligaciones de transparencia para agosto de 2026, gobernanza de alto riesgo para diciembre de 2027), las empresas están obligadas a construir exactamente esta infraestructura.
 
-*   **Mercado Objetivo (SOM):** ~3,9M€ de ARR a 3 años, centrado en empresas europeas (bancos, aseguradoras, gobierno).
-*   **Posicionamiento:** Costamos 0,0003 € por acción (12x más que soluciones binarias) porque hacemos evaluación semántica y damos una interfaz que reanuda la ejecución, evitando errores millonarios sin romper el flujo de trabajo.
+* **Mercado Objetivo:** Empresas B2B reguladas (Banca, Salud, Gobierno, Legal).
+* **Posicionamiento:** Costamos 0,0003 € por acción (12x más que las soluciones binarias) porque nuestra evaluación semántica y la interfaz de aprobación evitan errores millonarios sin romper el flujo de trabajo operativo.
 
 ### 📈 Modelo de Negocio y Finanzas
-Usamos un modelo SaaS Empresarial, desvinculado de los costes de computación:
+Operamos con un modelo SaaS Empresarial de alto valor.
 
-*   **Go-to-Market:** Piloto de 25.000 € (3 meses) para demostrar valor.
-*   **Suscripciones Anuales:** Basadas en rutas de escritura gobernadas.
-    *   *Core:* 40.000 €
-    *   *Business:* 95.000 €
-    *   *Enterprise:* +250.000 €
+| Plan | Precio | Cliente Objetivo |
+| :--- | :--- | :--- |
+| **Piloto Pagado** | 25.000 € (3 meses) | Prueba de valor para un departamento (hasta 3 agentes) |
+| **Core** | 40.000 € / año | Empresas reguladas pequeñas (5 agentes) |
+| **Business** | 95.000 € / año | Organizaciones medianas (25 agentes) |
+| **Enterprise** | +250.000 € / año | Bancos, gobiernos y grandes corporaciones (Volumen a medida) |
 
-**Proyección:** Buscamos 750.000 € de seed para los primeros 12-14 meses (MVP y 3 pilotos). Proyectamos el break-even en el mes 22, con solo 9 clientes Business, y márgenes brutos del 88%.
+**Proyección de Inversión:** Buscamos una **ronda seed de 750.000 €** para financiar los primeros 12 meses (MVP + 3 pilotos empresariales). Proyectamos alcanzar el *break-even* operativo en el mes 22, con solo 9 clientes de nivel Business y márgenes brutos del 88%.
 
-### 📂 Enlaces y Demos del Proyecto
-Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes acceder a las versiones en vivo:
+### 📂 Estructura del Repositorio y Demos
+Este repositorio actúa como el centro neurálgico de todos los archivos finales de nuestro proyecto:
 
-*   🖥️ **VetoPoint Pitch Room:** [Explora la presentación interactiva aquí](https://attentoai.com/vetopoint/pitch.html)
-*   📊 **Dashboard UI / Consola:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
+* 📄 **`VetoPoint AI — Competition Master Document.pdf`**: Resumen exhaustivo de la identidad corporativa, el problema y la solución.
+* 📊 **`VetoPoint AI — Business Plan.pdf`**: Modelos financieros, estrategia y gobernanza en profundidad.
+* 📽️ **`VetoPoint AI — Project Presentation.pdf`**: La presentación visual utilizada para el pitch final.
+
+**Demos en vivo:**
+* 🖥️ **VetoPoint Pitch Room:** [Explora la presentación interactiva](https://attentoai.com/vetopoint/pitch.html)
+* ⚙️ **Dashboard Console:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
+* 🎬 **Vídeo Promocional (1 Minuto):** [Ver en YouTube](https://www.youtube.com/watch?v=VPr0d0HLWWo)
 
 ### 👥 Equipo Trinorte
-*No pedimos a las empresas que confíen en otra IA. Les damos la infraestructura para decidir cuándo se puede confiar en que la IA actúe.*
+*"No pedimos a las empresas que confíen en otra IA. Les damos la infraestructura para decidir cuándo se puede confiar en que la IA actúe."*
 
-*   **Adrián Garrote Camoira** - Team Leader y Estratega de Negocio (Modelo de negocio, gobernanza y valor empresarial).
-*   **Brais Muiño Otero** - Líder de IA y Producto (Diseño del producto, arquitectura técnica e implementación).
-*   **Rubina Danilova** - Líder de Marketing y Presentación (Comunicación, identidad visual y pitch para inversores).
+* **Adrián Garrote Camoira** — Team Leader y Estratega de Negocio
+* **Brais Muiño Otero** — Líder de IA y Producto
+* **Rubina Danilova** — Líder de Marketing y Presentación
