@@ -54,6 +54,7 @@ This repository acts as the central hub for our project. You can explore our liv
 *   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Dashboard UI / Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
 *   📄 **Interactive Business Plan:** [attentoai.com/vetopoint/plan.html](https://attentoai.com/vetopoint/plan.html)
+*   🎯 **Project Presentation (PR):** [attentoai.com/vetopoint/pr.html](https://attentoai.com/vetopoint/pr.html)
 *   🎨 **Brand Guidelines:** [attentoai.com/vetopoint/branding.html](https://attentoai.com/vetopoint/branding.html)
 *   🎬 **Promotional Video:** [Watch on YouTube](https://www.youtube.com/watch?v=VPr0d0HLWWo)
 
