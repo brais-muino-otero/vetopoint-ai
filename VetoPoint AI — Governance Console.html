@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://attentoai.com/vetopoint/console.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VetoPoint AI — Governance Console</title>
+<style>
+  :root{
+    --navy:#14264C; --navy-soft:#1E3260; --blue:#2E9BEA; --coral:#F2503F;
+    --gray:#E9EAED; --white:#FFFFFF; --green:#1F9D6B; --amber:#E0A63C;
+    --muted:#5A6478; --tint:#F5F7FB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--tint);color:var(--navy);display:flex;min-height:100vh;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  textarea{font-family:inherit}
+  /* SIDEBAR */
+  #side{width:242px;background:var(--navy);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;flex-shrink:0}
+  .brand{height:64px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid var(--navy-soft);gap:10px}
+  .wm{font-weight:800;font-size:17px;color:#fff}
+  .wm b{color:var(--blue);font-weight:800}
+  .wm i{font-style:normal;font-size:10px;color:#AEBBD4;margin-left:3px}
+  .navbtn{width:100%;height:44px;display:flex;align-items:center;gap:11px;padding:0 15px;color:#AEBBD4;
+          font-size:14px;border-left:3px solid transparent;text-align:left}
+  .navbtn:hover{color:#fff}
+  .navbtn.on{color:#fff;background:var(--navy-soft);border-left-color:var(--blue);font-weight:700}
+  .navbtn .cnt{margin-left:auto;background:var(--coral);color:#fff;font-size:11px;font-weight:700;border-radius:99px;padding:1px 7px}
+  .tag{padding:14px 16px;border-top:1px solid var(--navy-soft);color:#7F8FAE;font-size:11px;line-height:1.5}
+  /* MAIN */
+  #main{flex:1;min-width:0;display:flex;flex-direction:column}
+  header{height:64px;background:#fff;border-bottom:1px solid var(--gray);display:flex;align-items:center;
+         gap:14px;padding:0 24px;position:sticky;top:0;z-index:5}
+  header h1{font-size:18px;font-weight:800}
+  .env{font-size:12px;font-weight:700;color:var(--blue);background:rgba(46,155,234,.09);padding:5px 10px;border-radius:8px}
+  main{padding:22px;flex:1}
+  /* PRIMITIVES */
+  .card{background:#fff;border:1px solid var(--gray);border-radius:12px;box-shadow:0 1px 2px rgba(20,38,76,.04)}
+  .row{display:flex;gap:18px;flex-wrap:wrap}
+  .col{display:flex;flex-direction:column;gap:18px}
+  .pad{padding:18px}
+  .ttl{font-weight:700;font-size:14px}
+  .sub{font-size:12.5px;color:var(--muted)}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-weight:800;border-radius:99px;
+         padding:3px 10px;font-size:11px;letter-spacing:.4px}
+  .badge.big{padding:6px 13px;font-size:13px}
+  .dot{width:8px;height:8px;border-radius:99px;display:inline-block}
+  pre{background:var(--navy);color:#DCE6F5;border-radius:9px;padding:13px;font-size:12.2px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,monospace;overflow-x:auto;white-space:pre-wrap;line-height:1.5}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;padding:11px 14px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--gray);font-size:12.5px}
+  td{padding:12px 14px;border-bottom:1px solid var(--tint)}
+  .tilelbl{font-size:13px;color:var(--muted);font-weight:600}
+  .tileval{font-size:34px;font-weight:800;line-height:1.1;margin-top:4px}
+  .listrow{display:flex;align-items:center;gap:12px;padding:0 16px;height:52px;
+           border-bottom:1px solid var(--tint);font-size:13px}
+  .clip{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .btn{height:44px;border-radius:10px;font-weight:700;font-size:14px;color:#fff;background:var(--blue);
+       display:flex;align-items:center;justify-content:center;gap:8px;width:100%}
+  .btn[disabled]{background:var(--muted);cursor:not-allowed}
+  .chip{font-size:12px;font-weight:600;padding:6px 12px;border-radius:8px;border:1px solid var(--gray);
+        color:var(--muted);background:#fff}
+  .chip.on{border-color:var(--blue);color:var(--blue);background:rgba(46,155,234,.08)}
+  .ex{text-align:left;font-size:13px;color:var(--navy);padding:9px 11px;border-radius:8px;
+      border:1px solid var(--gray);background:var(--tint);width:100%;margin-bottom:6px;line-height:1.35}
+  .ex:hover{border-color:var(--blue)}
+  textarea{width:100%;min-height:82px;padding:12px;border-radius:10px;border:1px solid var(--gray);font-size:14px;resize:vertical}
+  textarea:focus{outline:2px solid var(--blue);outline-offset:-1px}
+  .meterbg{height:8px;background:var(--gray);border-radius:99px;overflow:hidden}
+  .meterfg{height:100%;border-radius:99px;transition:width .5s}
+  .step{display:flex;gap:12px}
+  .stepn{width:26px;height:26px;border-radius:99px;background:var(--navy);color:#fff;font-size:12px;
+         font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .stepline{width:2px;flex:1;background:var(--gray);margin:3px auto}
+  .steplbl{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:7px}
+  .toggle{width:38px;height:22px;border-radius:99px;position:relative;background:var(--gray);transition:background .15s}
+  .toggle.on{background:var(--green)}
+  .toggle span{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:99px;background:#fff;transition:left .15s}
+  .toggle.on span{left:18px}
+  ul.rz{padding-left:17px;font-size:13px;line-height:1.55}
+  @media(max-width:900px){#side{width:64px}.wm,.navbtn span.lbl,.tag{display:none}.navbtn{justify-content:center;padding:0}}
+</style>
+</head>
+<body>
+
+<aside id="side">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 64 64">
+      <path d="M10 8 L32 54 L54 8 L44 8 L32 34 L20 8 Z" fill="#fff"></path>
+      <polyline points="22,26 32,40 42,20 50,12" fill="none" stroke="#2E9BEA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      <path d="M46 10 L52 10 L52 16" fill="none" stroke="#2E9BEA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+      <circle cx="32" cy="41" r="6" fill="#F2503F" stroke="#14264C" stroke-width="2"></circle>
+    </svg>
+    <div class="wm">Veto<b>Point</b><i>AI</i></div>
+  </div>
+  <nav id="nav" style="flex:1;padding:10px 0"><button class="navbtn on" data-go="dashboard"><span class="dot" style="background:#2E9BEA"></span><span class="lbl">Dashboard</span></button><button class="navbtn" data-go="playground"><span class="dot" style="background:#54679A"></span><span class="lbl">Playground</span></button><button class="navbtn" data-go="review"><span class="dot" style="background:#54679A"></span><span class="lbl">Review Console</span><span class="cnt">14</span></button><button class="navbtn" data-go="policies"><span class="dot" style="background:#54679A"></span><span class="lbl">Policies</span></button><button class="navbtn" data-go="audit"><span class="dot" style="background:#54679A"></span><span class="lbl">Audit Ledger</span></button><button class="navbtn" data-go="analytics"><span class="dot" style="background:#54679A"></span><span class="lbl">Analytics</span></button><button class="navbtn" data-go="integrations"><span class="dot" style="background:#54679A"></span><span class="lbl">Integrations</span></button></nav>
+  <div class="tag">Others secure the prompt.<br>VetoPoint secures the action.</div>
+</aside>
+
+<div id="main">
+  <header>
+    <h1 id="ph">Dashboard</h1>
+    <div style="flex:1"></div>
+    <span class="env">Production</span>
+  </header>
+  <main id="view"><div class="col"><div class="row"><div class="card pad" style="flex:1;min-width:170px"><div class="tilelbl">Pending human review</div><div class="tileval" style="color:#E0A63C">14</div><div class="sub" style="margin-top:3px">High-risk actions held</div></div><div class="card pad" style="flex:1;min-width:170px"><div class="tilelbl">Approved</div><div class="tileval" style="color:#1F9D6B">16</div><div class="sub" style="margin-top:3px">Auto-cleared &amp; logged</div></div><div class="card pad" style="flex:1;min-width:170px"><div class="tilelbl">Escalated</div><div class="tileval" style="color:#E0A63C">16</div><div class="sub" style="margin-top:3px">Routed to a reviewer</div></div><div class="card pad" style="flex:1;min-width:170px"><div class="tilelbl">Vetoed</div><div class="tileval" style="color:#F2503F">14</div><div class="sub" style="margin-top:3px">Blocked before execution</div></div></div><div class="row"><div class="card pad" style="flex:2;min-width:400px"><div class="ttl" style="margin-bottom:8px">Action volume by verdict</div><svg viewBox="0 0 560 190" style="width:100%;height:200px"><line x1="26" y1="170" x2="552" y2="170" stroke="#E9EAED" stroke-dasharray="3 3"></line><text x="4" y="174" font-size="9" fill="#5A6478">0</text><line x1="26" y1="122" x2="552" y2="122" stroke="#E9EAED" stroke-dasharray="3 3"></line><text x="4" y="126" font-size="9" fill="#5A6478">2</text><line x1="26" y1="74" x2="552" y2="74" stroke="#E9EAED" stroke-dasharray="3 3"></line><text x="4" y="78" font-size="9" fill="#5A6478">4</text><line x1="26" y1="26" x2="552" y2="26" stroke="#E9EAED" stroke-dasharray="3 3"></line><text x="4" y="30" font-size="9" fill="#5A6478">6</text><polyline fill="none" stroke="#1F9D6B" stroke-width="2.5" points="26.0,122.0 65.1,98.0 104.2,146.0 143.2,146.0 182.3,122.0 221.4,170.0 260.5,122.0 299.5,170.0 338.6,146.0 377.7,170.0 416.8,170.0 455.8,122.0 494.9,146.0 534.0,170.0"></polyline><polyline fill="none" stroke="#E0A63C" stroke-width="2.5" points="26.0,146.0 65.1,170.0 104.2,122.0 143.2,146.0 182.3,146.0 221.4,50.0 260.5,170.0 299.5,146.0 338.6,122.0 377.7,122.0 416.8,146.0 455.8,170.0 494.9,170.0 534.0,170.0"></polyline><polyline fill="none" stroke="#F2503F" stroke-width="2.5" points="26.0,170.0 65.1,122.0 104.2,146.0 143.2,146.0 182.3,146.0 221.4,146.0 260.5,146.0 299.5,146.0 338.6,98.0 377.7,146.0 416.8,146.0 455.8,170.0 494.9,146.0 534.0,170.0"></polyline><text x="26" y="185" font-size="9" fill="#5A6478" text-anchor="middle">Jul 12</text><text x="143.23076923076923" y="185" font-size="9" fill="#5A6478" text-anchor="middle">Jul 15</text><text x="260.46153846153845" y="185" font-size="9" fill="#5A6478" text-anchor="middle">Jul 18</text><text x="377.6923076923077" y="185" font-size="9" fill="#5A6478" text-anchor="middle">Jul 21</text><text x="494.9230769230769" y="185" font-size="9" fill="#5A6478" text-anchor="middle">Jul 24</text></svg><div style="display:flex;gap:16px;justify-content:center;font-size:12px;color:#5A6478"><span><span class="dot" style="background:#1F9D6B"></span> Approve</span><span><span class="dot" style="background:#E0A63C"></span> Escalate</span><span><span class="dot" style="background:#F2503F"></span> Veto</span></div></div><div class="card pad" style="flex:1;min-width:240px"><div class="ttl" style="margin-bottom:10px">Top firing policies</div><div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0"><span>External Email Approval</span><span style="font-weight:700;color:#2E9BEA">8</span></div><div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0"><span>Single Transfer Limit</span><span style="font-weight:700;color:#2E9BEA">8</span></div><div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0"><span>No Patient Record Deletion</span><span style="font-weight:700;color:#2E9BEA">7</span></div><div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0"><span>Insurance Payout Ceiling</span><span style="font-weight:700;color:#2E9BEA">7</span></div></div></div><div class="card"><div style="height:48px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid #E9EAED"><span class="ttl">Recent actions</span><div style="flex:1"></div><button data-go="audit" style="color:#2E9BEA;font-size:13px;font-weight:600">View ledger →</button></div><div class="listrow"><span class="clip" style="flex:2">Delete patient record #4471 from the EHR.</span><span class="clip" style="flex:1;color:#5A6478">treasury-agent</span><span class="clip" style="flex:1;color:#5A6478">delete record</span><span class="badge" style="color:#F2503F;background:#F2503F1A"><span class="dot" style="background:#F2503F"></span>VETO</span><span style="width:72px;text-align:right;color:#5A6478">1d ago</span></div><div class="listrow"><span class="clip" style="flex:2">Read the current balance of the operating account.</span><span class="clip" style="flex:1;color:#5A6478">care-assistant</span><span class="clip" style="flex:1;color:#5A6478">read data</span><span class="badge" style="color:#1F9D6B;background:#1F9D6B1A"><span class="dot" style="background:#1F9D6B"></span>APPROVE</span><span style="width:72px;text-align:right;color:#5A6478">1d ago</span></div><div class="listrow"><span class="clip" style="flex:2">Read the current balance of the operating account.</span><span class="clip" style="flex:1;color:#5A6478">care-assistant</span><span class="clip" style="flex:1;color:#5A6478">read data</span><span class="badge" style="color:#1F9D6B;background:#1F9D6B1A"><span class="dot" style="background:#1F9D6B"></span>APPROVE</span><span style="width:72px;text-align:right;color:#5A6478">2d ago</span></div><div class="listrow"><span class="clip" style="flex:2">Read the current balance of the operating account.</span><span class="clip" style="flex:1;color:#5A6478">treasury-agent</span><span class="clip" style="flex:1;color:#5A6478">read data</span><span class="badge" style="color:#1F9D6B;background:#1F9D6B1A"><span class="dot" style="background:#1F9D6B"></span>APPROVE</span><span style="width:72px;text-align:right;color:#5A6478">2d ago</span></div><div class="listrow"><span class="clip" style="flex:2">Email the full customer list to partner@external-domain.com.</span><span class="clip" style="flex:1;color:#5A6478">ops-bot</span><span class="clip" style="flex:1;color:#5A6478">send email</span><span class="badge" style="color:#E0A63C;background:#E0A63C1A"><span class="dot" style="background:#E0A63C"></span>ESCALATE</span><span style="width:72px;text-align:right;color:#5A6478">2d ago</span></div><div class="listrow"><span class="clip" style="flex:2">Authorize a €2,000,000 payout on claim #88120.</span><span class="clip" style="flex:1;color:#5A6478">claims-copilot</span><span class="clip" style="flex:1;color:#5A6478">authorize payout</span><span class="badge" style="color:#F2503F;background:#F2503F1A"><span class="dot" style="background:#F2503F"></span>VETO</span><span style="width:72px;text-align:right;color:#5A6478">2d ago</span></div><div class="listrow"><span class="clip" style="flex:2">Email the full customer list to partner@external-domain.com.</span><span class="clip" style="flex:1;color:#5A6478">ops-bot</span><span class="clip" style="flex:1;color:#5A6478">send email</span><span class="badge" style="color:#E0A63C;background:#E0A63C1A"><span class="dot" style="background:#E0A63C"></span>ESCALATE</span><span style="width:72px;text-align:right;color:#5A6478">3d ago</span></div></div></div></main>
+</div>
+
+<script>
+"use strict";
+/* ---------------- BRAND ---------------- */
+var C={navy:"#14264C",blue:"#2E9BEA",coral:"#F2503F",gray:"#E9EAED",green:"#1F9D6B",amber:"#E0A63C",muted:"#5A6478",tint:"#F5F7FB"};
+var VERDICT={approve:{l:"APPROVE",c:C.green},escalate:{l:"ESCALATE",c:C.amber},veto:{l:"VETO",c:C.coral}};
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m];});}
+function badge(v,big){var d=VERDICT[v];return '<span class="badge'+(big?' big':'')+'" style="color:'+d.c+';background:'+d.c+'1A"><span class="dot" style="background:'+d.c+'"></span>'+d.l+'</span>';}
+function meter(s){var c=s>70?C.coral:(s>=30?C.amber:C.green);
+  return '<div><div style="display:flex;justify-content:space-between;font-size:12px;color:'+C.muted+';margin-bottom:5px"><span>Risk score</span><span style="color:'+c+';font-weight:700">'+s+'/100</span></div><div class="meterbg"><div class="meterfg" style="width:'+s+'%;background:'+c+'"></div></div></div>';}
+function fmt(n){return "\u20AC"+Number(n||0).toLocaleString("en-US");}
+function ago(ts){var m=Math.floor((Date.now()-ts)/60000);if(m<60)return m+"m ago";if(m<1440)return Math.floor(m/60)+"h ago";return Math.floor(m/1440)+"d ago";}
+
+/* ---------------- POLICIES ---------------- */
+var POLICIES=[
+ {id:"P-01",name:"Single Transfer Limit",target:"core_banking",action:"transfer_funds",type:"limit",field:"amount",op:">",value:10000,severity:"high",reg:"PSD2 / Treasury",active:true},
+ {id:"P-02",name:"External Email Approval",target:"comms",action:"send_email",type:"require_approval",field:"external",op:"==",value:true,severity:"medium",reg:"GDPR",active:true},
+ {id:"P-03",name:"No Patient Record Deletion",target:"ehr",action:"delete_record",type:"deny",field:"*",severity:"critical",reg:"HIPAA",active:true},
+ {id:"P-04",name:"Insurance Payout Ceiling",target:"claims",action:"authorize_payout",type:"limit",field:"amount",op:">",value:100000,severity:"critical",reg:"Solvency II",active:true},
+ {id:"P-05",name:"Low-Value Reads Allowed",target:"any",action:"read_data",type:"allow",field:"*",severity:"low",reg:"",active:true}
+];
+var SENSITIVE={ehr:30,claims:22,gov_benefits:26,core_banking:18,comms:10};
+var IRREV={delete_record:30,transfer_funds:18,authorize_payout:22,send_email:12,read_data:0};
+
+/* ---------------- DECISION ENGINE ---------------- */
+function evaluate(intent){
+  var reasons=[],trig=[],i,p;
+  var rel=POLICIES.filter(function(x){return x.active&&x.action===intent.action_type;});
+  for(i=0;i<rel.length;i++){p=rel[i];
+    if(p.type==="deny"){trig.push(p);reasons.push('Prohibited by hard policy "'+p.name+'".');
+      return {verdict:"veto",risk_score:97,triggered:trig,reasons:reasons,
+        explanation:intent.action_type.replace(/_/g," ")+" is not permitted on "+intent.target_system+' under "'+p.name+'" ('+p.reg+").",};}
+  }
+  var score=6+(SENSITIVE[intent.target_system]||6)*0.4+(IRREV[intent.action_type]||5)*0.4;
+  if((intent.agent_confidence==null?1:intent.agent_confidence)<0.7){score+=10;reasons.push("Low agent confidence raised risk.");}
+  for(i=0;i<rel.length;i++){p=rel[i];
+    if(p.type==="limit"){var amt=Number((intent.parameters||{}).amount||0);
+      if(amt>p.value){trig.push(p);reasons.push(fmt(amt)+" exceeds the "+fmt(p.value)+' limit in "'+p.name+'".');
+        score=Math.max(score,p.severity==="critical"?86:58);}}
+    if(p.type==="require_approval"&&(intent.parameters||{}).external){
+      trig.push(p);reasons.push('External recipient requires human approval ("'+p.name+'").');
+      score=Math.max(score,52);}
+  }
+  score=Math.min(99,Math.round(score));
+  var verdict=score>70?"veto":(score>=30?"escalate":"approve");
+  if(!reasons.length)reasons.push("Within policy and below the risk threshold.");
+  var ex=verdict==="approve"?"Action is within policy and low-risk. Released for execution and logged."
+        :verdict==="escalate"?"Action needs human judgment. Held and routed to the Review Console."
+        :"Action exceeds acceptable risk and is blocked before execution.";
+  return {verdict:verdict,risk_score:score,triggered:trig,reasons:reasons,explanation:ex};
+}
+
+/* ---------------- AGENT (local, deterministic) ---------------- */
+var CTX={Banking:"core_banking",Insurance:"claims",Healthcare:"ehr",Government:"gov_benefits"};
+function parseAmount(t){
+  var m=t.replace(/,/g,"").match(/(?:\u20AC|eur\s*)?(\d+(?:\.\d+)?)\s*(million|m\b|k\b)?/i);
+  if(!m)return 0;var n=parseFloat(m[1]);var u=(m[2]||"").toLowerCase();
+  if(u.indexOf("m")===0)n*=1000000;else if(u.indexOf("k")===0)n*=1000;
+  return Math.round(n);
+}
+function agent(prompt,ctx){
+  var t=prompt.toLowerCase(),target=CTX[ctx]||"core_banking";
+  var action="read_data",params={},rationale="Interpreted the user instruction as a data read.";
+  if(/delete|remove|erase|purge|wipe/.test(t)){
+    action="delete_record";if(ctx==="Healthcare")target="ehr";
+    params={record:(t.match(/#\s?\d+/)||["a record"])[0]};rationale="User asked to delete a record.";
+  }else if(/e-?mail|send .*(list|report|file)|forward/.test(t)){
+    action="send_email";target="comms";
+    var em=(t.match(/[\w.\-]+@[\w.\-]+/)||[])[0];
+    params={recipient:em||"recipient",external:em?!/@(internal|company)\./.test(em):/external|partner|outside/.test(t)};
+    rationale="User asked to send an email.";
+  }else if(/payout|claim|reimburse|settle/.test(t)){
+    action="authorize_payout";target="claims";
+    params={amount:parseAmount(t),claim:(t.match(/#\s?\d+/)||["#claim"])[0]};
+    rationale="User asked to authorize a claim payout.";
+  }else if(/transfer|\bpay\b|wire|invoice|move .*money|remit/.test(t)){
+    action="transfer_funds";
+    var to=t.match(/to ([\w .&'-]+?)(?:\.|,|$)/);
+    params={amount:parseAmount(t),to:to?to[1].trim():"vendor",currency:"EUR"};
+    rationale="User requested a payment or transfer.";
+  }else if(/read|balance|check|look ?up|show|list|fetch|get /.test(t)){
+    action="read_data";params={query:"requested data"};rationale="User asked to read data.";
+  }
+  return {action_type:action,target_system:target,parameters:params,
+          agent_rationale:rationale,agent_confidence:0.78,user_prompt:prompt};
+}
+
+/* ---------------- SEED ---------------- */
+var SAMPLES=[
+ "Read the current balance of the operating account.",
+ "Pay the \u20AC900 monthly SaaS invoice to our usual vendor.",
+ "Transfer \u20AC50,000 to vendor Acme Ltd.",
+ "Email the full customer list to partner@external-domain.com.",
+ "Delete patient record #4471 from the EHR.",
+ "Authorize a \u20AC2,000,000 payout on claim #88120."
+];
+var SAMPLE_CTX=["Banking","Banking","Banking","Government","Healthcare","Insurance"];
+var AGENTS=["treasury-agent","claims-copilot","care-assistant","ops-bot"];
+var ROWS=[];
+(function seed(){
+  var now=Date.now();
+  for(var i=0;i<46;i++){
+    var p=SAMPLES[i%6],it=agent(p,SAMPLE_CTX[i%6]);
+    var d=evaluate(it),r={};
+    for(var k in it)r[k]=it[k];
+    r.id="AI-"+(1000+i);r.verdict=d.verdict;r.risk_score=d.risk_score;
+    r.triggered=d.triggered;r.reasons=d.reasons;r.explanation=d.explanation;
+    r.agent=AGENTS[i%4];r.ts=now-Math.floor(Math.random()*12*864e5)-i*36e5;
+    r.decided_by=d.verdict==="escalate"?(Math.random()>0.55?"human":"pending"):"system";
+    ROWS.push(r);
+  }
+  ROWS.sort(function(a,b){return b.ts-a.ts;});
+})();
+function pending(){return ROWS.filter(function(r){return r.verdict==="escalate"&&r.decided_by==="pending";});}
+function counts(){return {approve:ROWS.filter(function(r){return r.verdict==="approve";}).length,
+  escalate:ROWS.filter(function(r){return r.verdict==="escalate";}).length,
+  veto:ROWS.filter(function(r){return r.verdict==="veto";}).length};}
+
+/* ---------------- NAV ---------------- */
+var PAGES=[["dashboard","Dashboard"],["playground","Playground"],["review","Review Console"],
+           ["policies","Policies"],["audit","Audit Ledger"],["analytics","Analytics"],["integrations","Integrations"]];
+var page="dashboard";
+function renderNav(){
+  var n=pending().length;
+  document.getElementById("nav").innerHTML=PAGES.map(function(p){
+    return '<button class="navbtn'+(page===p[0]?" on":"")+'" data-go="'+p[0]+'"><span class="dot" style="background:'+(page===p[0]?C.blue:"#54679A")+'"></span><span class="lbl">'+p[1]+'</span>'+
+      (p[0]==="review"&&n?'<span class="cnt">'+n+'</span>':'')+'</button>';
+  }).join("");
+}
+function go(p){page=p;document.getElementById("ph").textContent=(PAGES.filter(function(x){return x[0]===p;})[0]||[,""])[1];renderNav();render();}
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-go]");if(t){go(t.getAttribute("data-go"));return;}
+  var a=e.target.closest("[data-act]");if(a)ACT[a.getAttribute("data-act")](a);
+});
+
+/* ---------------- SVG CHART HELPERS ---------------- */
+function areaChart(days){
+  var W=560,H=190,pad=26,max=1;
+  days.forEach(function(d){max=Math.max(max,d.a+d.e+d.v);});
+  function pts(keyfn){return days.map(function(d,i){
+    var x=pad+i*(W-pad*2)/(days.length-1),y=H-20-(keyfn(d)/max)*(H-46);
+    return x.toFixed(1)+","+y.toFixed(1);}).join(" ");}
+  var g='<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:200px">';
+  for(var i=0;i<=3;i++){var y=H-20-i*(H-46)/3;
+    g+='<line x1="'+pad+'" y1="'+y+'" x2="'+(W-8)+'" y2="'+y+'" stroke="'+C.gray+'" stroke-dasharray="3 3"/>';
+    g+='<text x="4" y="'+(y+4)+'" font-size="9" fill="'+C.muted+'">'+Math.round(max*i/3)+'</text>';}
+  g+='<polyline fill="none" stroke="'+C.green+'" stroke-width="2.5" points="'+pts(function(d){return d.a;})+'"/>';
+  g+='<polyline fill="none" stroke="'+C.amber+'" stroke-width="2.5" points="'+pts(function(d){return d.e;})+'"/>';
+  g+='<polyline fill="none" stroke="'+C.coral+'" stroke-width="2.5" points="'+pts(function(d){return d.v;})+'"/>';
+  days.forEach(function(d,i){if(i%3===0){var x=pad+i*(W-pad*2)/(days.length-1);
+    g+='<text x="'+x+'" y="'+(H-5)+'" font-size="9" fill="'+C.muted+'" text-anchor="middle">'+d.k+'</text>';}});
+  return g+'</svg>';
+}
+function donut(parts){
+  var total=parts.reduce(function(s,p){return s+p.v;},0)||1,acc=0,g='<svg viewBox="0 0 120 120" style="width:180px;height:180px">';
+  parts.forEach(function(p){
+    var a0=acc/total*2*Math.PI-Math.PI/2;acc+=p.v;var a1=acc/total*2*Math.PI-Math.PI/2;
+    var lg=(a1-a0)>Math.PI?1:0,R=52,r=32;
+    var x0=60+R*Math.cos(a0),y0=60+R*Math.sin(a0),x1=60+R*Math.cos(a1),y1=60+R*Math.sin(a1);
+    var xi=60+r*Math.cos(a1),yi=60+r*Math.sin(a1),xj=60+r*Math.cos(a0),yj=60+r*Math.sin(a0);
+    g+='<path d="M'+x0+' '+y0+' A'+R+' '+R+' 0 '+lg+' 1 '+x1+' '+y1+' L'+xi+' '+yi+' A'+r+' '+r+' 0 '+lg+' 0 '+xj+' '+yj+' Z" fill="'+p.c+'"/>';
+  });
+  return g+'</svg>';
+}
+function barChart(items){
+  var max=1;items.forEach(function(i){max=Math.max(max,i.v);});
+  return '<div style="display:flex;align-items:flex-end;gap:14px;height:180px;padding-top:10px">'+
+    items.map(function(i){
+      var c=i.v>70?C.coral:(i.v>=30?C.amber:C.green);
+      return '<div style="flex:1;text-align:center;display:flex;flex-direction:column;justify-content:flex-end;height:100%">'+
+        '<div style="font-size:12px;font-weight:700;color:'+c+'">'+i.v+'</div>'+
+        '<div style="background:'+c+';border-radius:6px 6px 0 0;height:'+(i.v/max*120)+'px;margin-top:4px"></div>'+
+        '<div style="font-size:10.5px;color:'+C.muted+';margin-top:6px">'+i.k+'</div></div>';}).join("")+'</div>';
+}
+
+/* ---------------- PAGES ---------------- */
+function pDashboard(){
+  var c=counts(),days=[];
+  for(var i=13;i>=0;i--){
+    var d=new Date(Date.now()-i*864e5),ds=d.toDateString();
+    var sel=ROWS.filter(function(r){return new Date(r.ts).toDateString()===ds;});
+    days.push({k:d.toLocaleDateString("en",{month:"short",day:"numeric"}),
+      a:sel.filter(function(x){return x.verdict==="approve";}).length,
+      e:sel.filter(function(x){return x.verdict==="escalate";}).length,
+      v:sel.filter(function(x){return x.verdict==="veto";}).length});
+  }
+  var pol={};ROWS.forEach(function(r){r.triggered.forEach(function(p){pol[p.name]=(pol[p.name]||0)+1;});});
+  var top=Object.keys(pol).map(function(k){return [k,pol[k]];}).sort(function(a,b){return b[1]-a[1];}).slice(0,5);
+  function tile(l,v,col,s){return '<div class="card pad" style="flex:1;min-width:170px"><div class="tilelbl">'+l+'</div>'+
+    '<div class="tileval" style="color:'+col+'">'+v+'</div><div class="sub" style="margin-top:3px">'+s+'</div></div>';}
+  return '<div class="col">'+
+   '<div class="row">'+tile("Pending human review",pending().length,C.amber,"High-risk actions held")+
+     tile("Approved",c.approve,C.green,"Auto-cleared &amp; logged")+
+     tile("Escalated",c.escalate,C.amber,"Routed to a reviewer")+
+     tile("Vetoed",c.veto,C.coral,"Blocked before execution")+'</div>'+
+   '<div class="row">'+
+     '<div class="card pad" style="flex:2;min-width:400px"><div class="ttl" style="margin-bottom:8px">Action volume by verdict</div>'+areaChart(days)+
+       '<div style="display:flex;gap:16px;justify-content:center;font-size:12px;color:'+C.muted+'">'+
+       '<span><span class="dot" style="background:'+C.green+'"></span> Approve</span>'+
+       '<span><span class="dot" style="background:'+C.amber+'"></span> Escalate</span>'+
+       '<span><span class="dot" style="background:'+C.coral+'"></span> Veto</span></div></div>'+
+     '<div class="card pad" style="flex:1;min-width:240px"><div class="ttl" style="margin-bottom:10px">Top firing policies</div>'+
+       (top.map(function(t){return '<div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0"><span>'+esc(t[0])+'</span><span style="font-weight:700;color:'+C.blue+'">'+t[1]+'</span></div>';}).join("")||'<div class="sub">No policy activity yet.</div>')+
+     '</div></div>'+
+   '<div class="card"><div style="height:48px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid '+C.gray+'">'+
+     '<span class="ttl">Recent actions</span><div style="flex:1"></div>'+
+     '<button data-go="audit" style="color:'+C.blue+';font-size:13px;font-weight:600">View ledger &rarr;</button></div>'+
+     ROWS.slice(0,7).map(function(r){return '<div class="listrow">'+
+       '<span class="clip" style="flex:2">'+esc(r.user_prompt)+'</span>'+
+       '<span class="clip" style="flex:1;color:'+C.muted+'">'+r.agent+'</span>'+
+       '<span class="clip" style="flex:1;color:'+C.muted+'">'+r.action_type.replace(/_/g," ")+'</span>'+
+       badge(r.verdict)+'<span style="width:72px;text-align:right;color:'+C.muted+'">'+ago(r.ts)+'</span></div>';}).join("")+
+   '</div></div>';
+}
+
+var PG={ctx:"Banking",prompt:"",trace:null};
+function pPlayground(){
+  var left='<div class="card pad" style="flex:1;min-width:340px">'+
+    '<div class="ttl">Prompt an AI agent</div>'+
+    '<p class="sub" style="margin:6px 0 14px">Type an instruction as if you were the user. The agent proposes an action &mdash; VetoPoint decides its fate before it runs.</p>'+
+    '<div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">'+
+      Object.keys(CTX).map(function(k){return '<button class="chip'+(PG.ctx===k?" on":"")+'" data-act="ctx" data-v="'+k+'">'+k+'</button>';}).join("")+'</div>'+
+    '<textarea id="pin" placeholder="e.g. Transfer \u20AC50,000 to vendor Acme Ltd.">'+esc(PG.prompt)+'</textarea>'+
+    '<button class="btn" data-act="run" style="margin-top:12px">Submit to VetoPoint &rarr;</button>'+
+    '<div style="font-size:11px;font-weight:700;color:'+C.muted+';margin:18px 0 8px;letter-spacing:.4px">TRY AN EXAMPLE</div>'+
+    SAMPLES.map(function(s,i){return '<button class="ex" data-act="ex" data-i="'+i+'">'+esc(s)+'</button>';}).join("")+
+  '</div>';
+
+  var right;
+  if(!PG.trace){
+    right='<div class="card pad" style="flex:1;min-width:340px;display:flex;align-items:center;justify-content:center;min-height:320px">'+
+      '<div style="text-align:center;color:'+C.muted+'"><svg width="40" height="40" viewBox="0 0 64 64" style="opacity:.35">'+
+      '<path d="M10 8 L32 54 L54 8 L44 8 L32 34 L20 8 Z" fill="'+C.navy+'"/><circle cx="32" cy="41" r="6" fill="'+C.coral+'"/></svg>'+
+      '<p style="margin-top:10px;font-size:14px">The governance trace will appear here.</p></div></div>';
+  }else{
+    var t=PG.trace,d=t.decision;
+    function step(n,label,body,last){
+      return '<div class="step"><div style="display:flex;flex-direction:column;align-items:center">'+
+        '<div class="stepn">'+n+'</div>'+(last?'':'<div class="stepline"></div>')+'</div>'+
+        '<div style="flex:1;padding-bottom:18px"><div class="steplbl">'+label+'</div>'+body+'</div></div>';
+    }
+    right='<div class="card pad" style="flex:1;min-width:340px">'+
+      step(1,"User prompt",'<div style="font-size:14px">'+esc(t.text)+'</div>')+
+      step(2,"Agent action intent",'<pre>'+esc(JSON.stringify({action_type:t.intent.action_type,target_system:t.intent.target_system,parameters:t.intent.parameters},null,2))+'</pre>'+
+        '<div class="sub" style="margin-top:6px">'+esc(t.intent.agent_rationale)+'</div>')+
+      step(3,"Policy &amp; risk evaluation",meter(d.risk_score)+
+        '<ul class="rz" style="margin-top:9px">'+d.reasons.map(function(r){return '<li>'+esc(r)+'</li>';}).join("")+'</ul>'+
+        d.triggered.map(function(p){return '<div style="font-size:11px;color:'+C.muted+';margin-top:5px">Policy: '+esc(p.name)+(p.reg?" \u00B7 "+esc(p.reg):"")+'</div>';}).join(""))+
+      step(4,"Verdict",badge(d.verdict,true)+'<p style="font-size:13px;margin-top:9px">'+esc(d.explanation)+'</p>',true)+
+    '</div>';
+  }
+  return '<div class="row">'+left+right+'</div>';
+}
+
+function pReview(){
+  var q=pending();
+  if(!q.length)return '<div class="card pad" style="text-align:center;padding:44px;color:'+C.muted+'">'+
+    '<div style="font-size:15px;font-weight:700;color:'+C.green+'">Queue clear</div>'+
+    '<div style="margin-top:6px;font-size:13px">No actions awaiting review. People stay in control.</div></div>';
+  var cur=q.filter(function(r){return r.id===PG.sel;})[0]||q[0];PG.sel=cur.id;
+  var list='<div class="card" style="flex:1;min-width:270px;max-width:340px">'+
+    '<div style="height:46px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid '+C.gray+'" class="ttl">Escalation queue ('+q.length+')</div>'+
+    q.map(function(r){return '<button data-act="sel" data-id="'+r.id+'" style="width:100%;text-align:left;padding:11px 16px;border-bottom:1px solid '+C.tint+';background:'+(r.id===cur.id?"rgba(46,155,234,.07)":"#fff")+'">'+
+      '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">'+
+      '<span class="clip" style="font-size:13px;font-weight:600;max-width:200px">'+esc(r.user_prompt)+'</span>'+
+      '<span style="font-size:11px;font-weight:700;color:'+(r.risk_score>70?C.coral:C.amber)+'">'+r.risk_score+'</span></div>'+
+      '<div class="sub" style="font-size:11px;margin-top:2px">'+r.agent+' \u00B7 '+ago(r.ts)+'</div></button>';}).join("")+'</div>';
+  var det='<div class="card pad" style="flex:2;min-width:330px">'+badge("escalate",true)+
+    '<h3 style="font-size:16px;font-weight:800;margin-top:10px">'+esc(cur.user_prompt)+'</h3>'+
+    '<div class="sub" style="margin-top:3px">'+cur.agent+' \u00B7 '+cur.target_system+'</div>'+
+    '<div style="margin-top:16px">'+meter(cur.risk_score)+'</div>'+
+    '<div class="steplbl" style="margin-top:16px">Proposed action</div>'+
+    '<pre>'+esc(JSON.stringify({action_type:cur.action_type,parameters:cur.parameters},null,2))+'</pre>'+
+    '<div class="steplbl" style="margin-top:16px">Why it was held</div>'+
+    '<ul class="rz">'+cur.reasons.map(function(r){return '<li>'+esc(r)+'</li>';}).join("")+'</ul>'+
+    '<textarea id="note" placeholder="Reviewer note (required)\u2026" style="margin-top:16px;min-height:62px"></textarea>'+
+    '<div style="display:flex;gap:12px;margin-top:12px">'+
+      '<button class="btn" data-act="resolve" data-v="approve" style="background:'+C.green+'">Approve</button>'+
+      '<button class="btn" data-act="resolve" data-v="veto" style="background:'+C.coral+'">Veto</button></div></div>';
+  return '<div class="row">'+list+det+'</div>';
+}
+
+function pPolicies(){
+  var col={deny:C.coral,limit:C.amber,require_approval:C.blue,allow:C.green};
+  return '<div class="card"><div style="height:48px;display:flex;align-items:center;padding:0 16px;border-bottom:1px solid '+C.gray+'">'+
+    '<span class="ttl">Active policies</span><span class="sub" style="margin-left:8px">\u00B7 rules that drive every verdict \u2014 toggle one and re-run the Playground</span></div>'+
+    '<div style="overflow-x:auto"><table><thead><tr><th>Policy</th><th>Target</th><th>Action</th><th>Rule</th><th>Severity</th><th>Regulation</th><th>On</th></tr></thead><tbody>'+
+    POLICIES.map(function(p){return '<tr><td style="font-weight:600">'+esc(p.name)+
+      (p.value!=null?'<span style="color:'+C.muted+';font-weight:400"> \u00B7 '+p.field+' '+p.op+' '+p.value+'</span>':'')+'</td>'+
+      '<td style="color:'+C.muted+'">'+p.target+'</td><td style="color:'+C.muted+'">'+p.action.replace(/_/g," ")+'</td>'+
+      '<td><span style="color:'+col[p.type]+';background:'+col[p.type]+'18;padding:2px 9px;border-radius:6px;font-size:12px;font-weight:700">'+p.type.replace(/_/g," ")+'</span></td>'+
+      '<td style="color:'+C.muted+'">'+p.severity+'</td><td style="color:'+C.muted+'">'+(p.reg||"\u2014")+'</td>'+
+      '<td><button class="toggle'+(p.active?" on":"")+'" data-act="pol" data-id="'+p.id+'"><span></span></button></td></tr>';}).join("")+
+    '</tbody></table></div></div>';
+}
+
+var AF="all",ASEL=null;
+function pAudit(){
+  var list=ROWS.filter(function(r){return AF==="all"||r.verdict===AF;});
+  var sel=ROWS.filter(function(r){return r.id===ASEL;})[0];
+  return '<div class="row"><div class="card" style="flex:2;min-width:400px">'+
+    '<div style="height:48px;display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:1px solid '+C.gray+';flex-wrap:wrap">'+
+    '<span class="ttl">Audit ledger</span><span class="sub">\u00B7 tamper-evident; entries cannot be edited or deleted</span><div style="flex:1"></div>'+
+    ["all","approve","escalate","veto"].map(function(k){return '<button data-act="filt" data-v="'+k+'" style="font-size:12px;font-weight:600;padding:4px 11px;border-radius:7px;color:'+(AF===k?"#fff":C.muted)+';background:'+(AF===k?C.navy:C.tint)+'">'+k+'</button>';}).join("")+'</div>'+
+    '<div style="max-height:540px;overflow-y:auto">'+list.map(function(r){return '<button data-act="asel" data-id="'+r.id+'" class="listrow" style="width:100%;height:50px;background:'+(ASEL===r.id?"rgba(46,155,234,.07)":"#fff")+'">'+
+      '<span style="width:64px;color:'+C.muted+';font-size:11px">'+r.id+'</span>'+
+      '<span class="clip" style="flex:1;text-align:left">'+esc(r.user_prompt)+'</span>'+
+      '<span style="width:78px;color:'+C.muted+';font-size:12px">'+r.decided_by+'</span>'+badge(r.verdict)+
+      '<span style="width:66px;text-align:right;color:'+C.muted+';font-size:11px">'+ago(r.ts)+'</span></button>';}).join("")+'</div></div>'+
+    '<div class="card pad" style="flex:1;min-width:270px">'+(sel?
+      '<div class="ttl" style="margin-bottom:8px">'+sel.id+'</div>'+badge(sel.verdict,true)+
+      '<pre style="margin-top:12px;font-size:11.5px">'+esc(JSON.stringify({user_prompt:sel.user_prompt,agent:sel.agent,action_type:sel.action_type,target_system:sel.target_system,parameters:sel.parameters,verdict:sel.verdict,risk_score:sel.risk_score,decided_by:sel.decided_by,reasons:sel.reasons},null,2))+'</pre>'
+      :'<div class="sub">Select an entry to see its full immutable snapshot.</div>')+'</div></div>';
+}
+
+function pAnalytics(){
+  var c=counts(),parts=[{n:"Approve",v:c.approve,c:C.green},{n:"Escalate",v:c.escalate,c:C.amber},{n:"Veto",v:c.veto,c:C.coral}];
+  var m={};ROWS.forEach(function(r){if(!m[r.target_system])m[r.target_system]={s:0,n:0};m[r.target_system].s+=r.risk_score;m[r.target_system].n++;});
+  var bars=Object.keys(m).map(function(k){return {k:k,v:Math.round(m[k].s/m[k].n)};});
+  return '<div class="row">'+
+    '<div class="card pad" style="flex:1;min-width:280px;text-align:center"><div class="ttl" style="text-align:left;margin-bottom:10px">Verdict distribution</div>'+
+      donut(parts)+'<div style="display:flex;gap:14px;justify-content:center;font-size:12px;color:'+C.muted+';margin-top:8px">'+
+      parts.map(function(p){return '<span><span class="dot" style="background:'+p.c+'"></span> '+p.n+' ('+p.v+')</span>';}).join("")+'</div></div>'+
+    '<div class="card pad" style="flex:2;min-width:330px"><div class="ttl" style="margin-bottom:6px">Average risk score by target system</div>'+
+      barChart(bars)+'</div></div>';
+}
+
+function pIntegrations(){
+  var curl='curl -X POST https://api.vetopoint.ai/governance/evaluate \\\n'+
+  '  -H "Authorization: Bearer vp_live_XXXXXXXX" \\\n  -H "Content-Type: application/json" \\\n  -d \'{\n'+
+  '    "agent_id": "treasury-agent",\n    "session_id": "sess_8842",\n'+
+  '    "user_prompt": "Transfer \u20AC50,000 to vendor Acme Ltd.",\n'+
+  '    "action_type": "transfer_funds",\n    "target_system": "core_banking",\n'+
+  '    "parameters": { "amount": 50000, "to": "Acme Ltd", "currency": "EUR" },\n'+
+  '    "agent_confidence": 0.82\n  }\'';
+  return '<div class="col"><div class="card pad"><div class="ttl">Production ingest API</div>'+
+    '<p class="sub" style="margin:6px 0 14px">Any real agent \u2014 driven by real user prompts anywhere \u2014 sends its proposed action here and receives a verdict before executing. Same schema and engine as the Playground, so live traffic flows into these same dashboards and the ledger.</p>'+
+    '<pre>'+esc(curl)+'</pre></div>'+
+    '<div class="row"><div class="card pad" style="flex:1;min-width:260px"><div class="ttl" style="margin-bottom:10px">Response</div>'+
+    '<pre style="background:'+C.tint+';color:'+C.navy+'">'+esc('{\n  "decision_id": "dec_5f2a",\n  "verdict": "escalate",\n  "risk_score": 58,\n  "triggered_policies": ["Single Transfer Limit"],\n  "explanation": "Held for human review."\n}')+'</pre></div>'+
+    '<div class="card pad" style="flex:1;min-width:260px"><div class="ttl" style="margin-bottom:6px">Registered agents</div>'+
+    AGENTS.map(function(a){return '<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid '+C.tint+';font-size:13px">'+
+      '<span style="font-weight:600">'+a+'</span><span style="font-size:11px;color:'+C.muted+';font-family:ui-monospace,monospace">vp_live_\u2022\u2022\u2022\u2022'+(a.length*7)+'</span>'+
+      '<span style="font-size:11px;color:'+C.green+';font-weight:700">active</span></div>';}).join("")+
+    '<div class="sub" style="margin-top:12px">Fail-closed: if no verdict can be rendered, the action is held \u2014 never allowed.</div></div></div></div>';
+}
+
+/* ---------------- ACTIONS ---------------- */
+var ACT={
+  ctx:function(el){PG.ctx=el.getAttribute("data-v");render();},
+  ex:function(el){var i=+el.getAttribute("data-i");PG.ctx=SAMPLE_CTX[i];run(SAMPLES[i]);},
+  run:function(){var v=document.getElementById("pin");run(v?v.value:"");},
+  sel:function(el){PG.sel=el.getAttribute("data-id");render();},
+  pol:function(el){var id=el.getAttribute("data-id");
+    POLICIES.forEach(function(p){if(p.id===id)p.active=!p.active;});render();},
+  filt:function(el){AF=el.getAttribute("data-v");render();},
+  asel:function(el){ASEL=el.getAttribute("data-id");render();},
+  resolve:function(el){
+    var note=document.getElementById("note"),v=el.getAttribute("data-v");
+    if(!note||!note.value.trim()){note&&note.focus();return;}
+    ROWS.forEach(function(r){if(r.id===PG.sel){r.verdict=v;r.decided_by="human";
+      r.reasons=r.reasons.concat(["Human reviewer chose to "+v+": "+note.value.trim()]);}});
+    PG.sel=null;renderNav();render();}
+};
+function run(text){
+  if(!text||!text.trim())return;
+  PG.prompt=text;
+  var it=agent(text,PG.ctx),d=evaluate(it),r={};
+  for(var k in it)r[k]=it[k];
+  r.id="AI-"+Math.floor(Math.random()*9000+1000);r.verdict=d.verdict;r.risk_score=d.risk_score;
+  r.triggered=d.triggered;r.reasons=d.reasons;r.explanation=d.explanation;
+  r.agent="playground-agent";r.ts=Date.now();
+  r.decided_by=d.verdict==="escalate"?"pending":"system";
+  ROWS.unshift(r);
+  PG.trace={text:text,intent:it,decision:d};
+  if(page!=="playground"){go("playground");}else{renderNav();render();}
+}
+
+/* ---------------- RENDER ---------------- */
+function render(){
+  var v=document.getElementById("view");
+  v.innerHTML = page==="dashboard"?pDashboard():page==="playground"?pPlayground():
+    page==="review"?pReview():page==="policies"?pPolicies():page==="audit"?pAudit():
+    page==="analytics"?pAnalytics():pIntegrations();
+}
+renderNav();render();
+</script>
+
+
+</body></html>

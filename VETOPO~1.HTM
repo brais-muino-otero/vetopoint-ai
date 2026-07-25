@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<!-- saved from url=(0245)file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20%E2%80%94%20Enterprise%20AI%20Action%20Governance.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VetoPoint AI — Enterprise AI Action Governance</title>
+<link rel="icon" type="image/png" href="./VetoPoint AI — Enterprise AI Action Governance_files/logo.png">
+<meta name="description" content="VetoPoint AI reads the intent behind AI-generated actions, scores the risk, and holds the line before anything executes. Enterprise AI governance for the agent era.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20%E2%80%94%20Enterprise%20AI%20Action%20Governance_files/css2" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0F19;
+  --bg-1:#0D1220;
+  --bg-elevated:#111830;
+  --card:rgba(255,255,255,0.035);
+  --card-hover:rgba(255,255,255,0.06);
+  --border:rgba(148,163,184,0.14);
+  --border-strong:rgba(148,163,184,0.30);
+  --text:#EAEEF6;
+  --text-2:#9AA7BD;
+  --text-3:#5C6884;
+  --blue:#3856FF;
+  --blue-deep:#131C3E;
+  --cyan:#2FD8EF;
+  --purple:#9B6BFF;
+  --green:#3DDC97;
+  --amber:#F5B84E;
+  --red:#F0616B;
+  --font-d:'Space Grotesk',sans-serif;
+  --font-b:'Inter',sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+  --container:1180px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-b);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-m);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--cyan);font-weight:500;
+}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--cyan);box-shadow:0 0 10px var(--cyan);transform:rotate(45deg);}
+h1,h2,h3,h4{font-family:var(--font-d);font-weight:600;letter-spacing:-0.02em;color:var(--text);}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.12;}
+h3{font-size:20px;}
+p{color:var(--text-2);}
+.section{padding:120px 0;position:relative;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{margin-top:14px;}
+.section-head p{margin-top:16px;font-size:17px;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* ---------- Gate divider (signature structural device) ---------- */
+.gate-divider{
+  display:flex;align-items:center;gap:16px;
+  max-width:var(--container);margin:0 auto;padding:0 32px;
+}
+.gate-divider .line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent);}
+.gate-node{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--font-m);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-3);white-space:nowrap;
+}
+.gate-node .dot{width:7px;height:7px;transform:rotate(45deg);background:var(--text-3);}
+.gate-node.status-allow{color:var(--green);} .gate-node.status-allow .dot{background:var(--green);box-shadow:0 0 8px var(--green);}
+.gate-node.status-review{color:var(--amber);} .gate-node.status-review .dot{background:var(--amber);box-shadow:0 0 8px var(--amber);}
+.gate-node.status-block{color:var(--red);} .gate-node.status-block .dot{background:var(--red);box-shadow:0 0 8px var(--red);}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-stagger > *{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+.reveal-stagger.is-visible > *:nth-child(1){transition-delay:.02s;}
+.reveal-stagger.is-visible > *:nth-child(2){transition-delay:.08s;}
+.reveal-stagger.is-visible > *:nth-child(3){transition-delay:.14s;}
+.reveal-stagger.is-visible > *:nth-child(4){transition-delay:.20s;}
+.reveal-stagger.is-visible > *:nth-child(5){transition-delay:.26s;}
+.reveal-stagger.is-visible > *:nth-child(6){transition-delay:.32s;}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 24px;border-radius:10px;font-size:14.5px;font-weight:600;
+  border:1px solid transparent;transition:transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+  font-family:var(--font-b);
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),var(--purple) 130%);
+  color:#fff;box-shadow:0 1px 0 rgba(255,255,255,0.15) inset, 0 10px 30px -10px rgba(56,86,255,0.55);
+}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,0.2) inset, 0 14px 34px -8px rgba(56,86,255,0.7);}
+.btn-ghost{
+  background:rgba(255,255,255,0.02);border-color:var(--border-strong);color:var(--text);
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.06);border-color:rgba(148,163,184,0.5);}
+.btn-sm{padding:9px 16px;font-size:13px;border-radius:8px;}
+
+/* ---------- Navbar ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+header.scrolled{
+  background:rgba(11,15,25,0.72);backdrop-filter:blur(16px) saturate(140%);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:600;font-size:17px;letter-spacing:-0.01em;}
+.brand-mark{width:30px;height:30px;}
+.brand-logo{height:30px;width:auto;display:block;}
+.brand-logo-footer{height:34px;}
+.nav-links{display:flex;align-items:center;gap:30px;}
+.nav-links a{font-size:14px;color:var(--text-2);transition:color .2s ease;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;align-items:center;gap:14px;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:6px;}
+.nav-toggle span{width:22px;height:2px;background:var(--text);}
+.mobile-menu{
+  display:none;position:fixed;inset:72px 0 0 0;background:var(--bg);z-index:99;
+  padding:32px;flex-direction:column;gap:22px;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-size:18px;font-family:var(--font-d);}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;padding:190px 0 100px;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.45;}
+.blob-1{width:560px;height:560px;top:-220px;left:-160px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);animation:float1 16s ease-in-out infinite;}
+.blob-2{width:480px;height:480px;top:-100px;right:-180px;background:radial-gradient(circle,var(--purple) 0%,transparent 70%);animation:float2 20s ease-in-out infinite;}
+.blob-3{width:420px;height:420px;bottom:-260px;left:38%;background:radial-gradient(circle,var(--cyan) 0%,transparent 70%);opacity:0.28;animation:float1 24s ease-in-out infinite reverse;}
+@keyframes float1{0%,100%{transform:translate(0,0);}50%{transform:translate(40px,30px);}}
+@keyframes float2{0%,100%{transform:translate(0,0);}50%{transform:translate(-30px,40px);}}
+.grid-overlay{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(148,163,184,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,0.05) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 70% 55% at 50% 20%,black 20%,transparent 80%);
+}
+.hero-inner{position:relative;z-index:1;}
+.hero-top{max-width:760px;margin:0 auto;text-align:center;}
+.hero-top .eyebrow{margin-bottom:20px;justify-content:center;display:inline-flex;}
+.hero h1{
+  font-size:clamp(34px,5.4vw,64px);line-height:1.06;letter-spacing:-0.03em;
+}
+.hero h1 .accent{background:linear-gradient(120deg,var(--cyan),var(--blue) 60%,var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero-sub{max-width:600px;margin:24px auto 0;font-size:17.5px;color:var(--text-2);}
+.hero-ctas{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap;}
+.hero-note{margin-top:18px;font-family:var(--font-m);font-size:12px;color:var(--text-3);letter-spacing:0.02em;}
+
+/* ---------- Gate diagram ---------- */
+.gate-diagram{margin-top:88px;position:relative;}
+.gate-diagram svg{width:100%;height:auto;overflow:visible;}
+.gd-node-label{font-family:var(--font-m);font-size:11px;fill:var(--text-2);letter-spacing:0.02em;}
+.gd-node-sub{font-family:var(--font-m);font-size:9.5px;fill:var(--text-3);}
+.pulse{offset-rotate:0deg;animation:travel 3.2s linear infinite;}
+.pulse-b{animation-delay:.9s;}
+@keyframes travel{0%{offset-distance:0%;opacity:0;}5%{opacity:1;}92%{opacity:1;}100%{offset-distance:100%;opacity:0;}}
+
+/* stats strip */
+.stats-strip{
+  margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.stat{padding:26px 18px;text-align:center;border-left:1px solid var(--border);}
+.stat:first-child{border-left:none;}
+.stat .num{font-family:var(--font-d);font-size:clamp(22px,3vw,30px);font-weight:600;
+  background:linear-gradient(120deg,var(--text),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.stat .label{margin-top:6px;font-family:var(--font-m);font-size:11.5px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;}
+
+/* industries strip */
+.industries-strip{padding:44px 0;border-bottom:1px solid var(--border);}
+.industries-strip .label-row{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;}
+.chip{
+  font-family:var(--font-m);font-size:12.5px;color:var(--text-2);
+  padding:8px 16px;border:1px solid var(--border);border-radius:999px;background:var(--card);
+}
+
+/* ---------- Cards ---------- */
+.card-grid{display:grid;gap:20px;}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;
+  transition:background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.card:hover{background:var(--card-hover);border-color:var(--border-strong);transform:translateY(-3px);}
+.card .icon-box{
+  width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--blue-deep),rgba(155,107,255,0.18));border:1px solid var(--border-strong);margin-bottom:18px;
+}
+.card h3{margin-bottom:8px;}
+.card p{font-size:14.5px;}
+
+/* risk cards (problem section) */
+.risk-card{border-left:2px solid var(--red);}
+.risk-card .icon-box{background:linear-gradient(135deg,rgba(240,97,107,0.18),rgba(240,97,107,0.02));border-color:rgba(240,97,107,0.35);}
+
+/* ---------- Solution split ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.solution-visual{
+  border:1px solid var(--border);border-radius:20px;background:var(--bg-elevated);
+  padding:28px;position:relative;overflow:hidden;
+}
+.solution-visual::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(56,86,255,0.18),transparent 60%);
+}
+.log-line{
+  display:flex;align-items:center;gap:10px;font-family:var(--font-m);font-size:12.5px;
+  padding:10px 12px;border-radius:8px;margin-bottom:8px;position:relative;z-index:1;
+  border:1px solid var(--border);background:rgba(255,255,255,0.02);
+}
+.log-line .tag{padding:2px 8px;border-radius:5px;font-size:10px;letter-spacing:0.06em;font-weight:600;}
+.tag-allow{background:rgba(61,220,151,0.14);color:var(--green);}
+.tag-review{background:rgba(245,184,78,0.14);color:var(--amber);}
+.tag-block{background:rgba(240,97,107,0.14);color:var(--red);}
+.log-line .action{color:var(--text);flex:1;}
+.log-line .meta{color:var(--text-3);}
+
+/* ---------- How it works ---------- */
+.pipeline{position:relative;padding-left:0;}
+.pipeline-track{position:relative;}
+.pipeline-track::before{
+  content:"";position:absolute;left:27px;top:14px;bottom:14px;width:1px;
+  background:linear-gradient(180deg,var(--border-strong),var(--border) 80%,transparent);
+}
+.step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:26px 0;}
+.step-num{
+  width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-d);font-weight:600;font-size:16px;
+  background:var(--bg-elevated);border:1px solid var(--border-strong);color:var(--cyan);position:relative;z-index:1;
+}
+.step-body h3{margin-bottom:6px;}
+.step-body p{font-size:14.5px;max-width:560px;}
+
+.decision-branch{
+  margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.branch-card{border-radius:14px;padding:20px 22px;border:1px solid;position:relative;}
+.branch-allow{border-color:rgba(61,220,151,0.35);background:rgba(61,220,151,0.05);}
+.branch-block{border-color:rgba(240,97,107,0.35);background:rgba(240,97,107,0.05);}
+.branch-card .lbl{font-family:var(--font-m);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+.branch-allow .lbl{color:var(--green);} .branch-block .lbl{color:var(--red);}
+.branch-card p{margin-top:8px;font-size:14px;color:var(--text-2);}
+
+/* ---------- Benefits ---------- */
+.benefit-row{
+  display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--border);
+}
+.benefit-row:last-child{border-bottom:1px solid var(--border);}
+.benefit-row .icon-box{width:40px;height:40px;margin-bottom:0;}
+.benefit-row h3{font-size:17px;margin-bottom:4px;}
+.benefit-row p{font-size:14px;}
+
+/* ---------- Customers ---------- */
+.persona-card{padding:24px;}
+.persona-card .role{font-family:var(--font-m);font-size:11px;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;}
+
+/* ---------- Pricing ---------- */
+.pricing-stack{display:grid;gap:24px;}
+.pricing-banner{background:linear-gradient(135deg,rgba(56,86,255,0.14),rgba(155,107,255,0.10));border-color:rgba(56,86,255,0.32);}
+.pricing-banner-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.price-pill{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid var(--border);font-family:var(--font-m);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);}
+.feature-list{display:grid;gap:10px;margin-top:16px;}
+.feature-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:var(--text-2);}
+.feature-list li::before{content:"";width:8px;height:8px;flex:0 0 auto;margin-top:7px;border-radius:2px;background:linear-gradient(135deg,var(--cyan),var(--purple));box-shadow:0 0 8px rgba(47,216,239,0.28);}
+.price-note{margin-top:16px;font-size:13px;color:var(--text-3);} 
+.pricing-plan{display:flex;flex-direction:column;gap:14px;min-height:100%;}
+.pricing-plan.featured{border-color:rgba(47,216,239,0.34);box-shadow:inset 0 1px 0 rgba(255,255,255,0.05);} 
+.plan-price{font-family:var(--font-d);font-size:28px;line-height:1;color:var(--text);} 
+.plan-meta{font-family:var(--font-m);font-size:12px;color:var(--cyan);letter-spacing:0.06em;text-transform:uppercase;margin-top:6px;}
+
+/* ---------- Comparison table ---------- */
+.compare-table{width:100%;border-collapse:collapse;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.compare-table th,.compare-table td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--border);font-size:14.5px;}
+.compare-table th{font-family:var(--font-d);font-weight:600;font-size:14px;color:var(--text-3);background:var(--bg-elevated);}
+.compare-table th.col-veto{color:var(--cyan);}
+.compare-table td:first-child{color:var(--text-2);font-family:var(--font-m);font-size:13px;}
+.compare-table td.trad{color:var(--text-3);}
+.compare-table td.veto{color:var(--text);}
+.compare-table tr:last-child td{border-bottom:none;}
+.check{color:var(--green);} .cross{color:var(--text-3);}
+
+/* ---------- Team ---------- */
+.team-card{text-align:center;padding:32px 24px;}
+.avatar{
+  width:76px;height:76px;border-radius:50%;margin:0 auto 18px;
+  background:linear-gradient(135deg,var(--blue),var(--purple));
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:600;font-size:22px;color:#fff;
+}
+.team-card .role{font-family:var(--font-m);font-size:12px;color:var(--text-3);margin-top:4px;}
+.team-note{margin-top:36px;font-size:14px;color:var(--text-3);}
+
+/* ---------- FAQ ---------- */
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:22px 0;cursor:pointer;font-family:var(--font-d);font-size:16.5px;font-weight:500;
+}
+.faq-q .plus{font-size:20px;color:var(--text-3);transition:transform .25s ease;flex-shrink:0;}
+.faq-item.open .plus{transform:rotate(45deg);color:var(--cyan);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-a p{padding-bottom:22px;font-size:14.5px;max-width:640px;}
+.faq-item.open .faq-a{max-height:220px;}
+
+/* ---------- Contact ---------- */
+.contact-panel{
+  border:1px solid var(--border);border-radius:20px;background:var(--bg-elevated);padding:44px;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;
+}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:12.5px;color:var(--text-3);margin-bottom:6px;font-family:var(--font-m);letter-spacing:0.03em;}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 14px;border-radius:9px;border:1px solid var(--border-strong);
+  background:rgba(255,255,255,0.02);color:var(--text);font-family:var(--font-b);font-size:14.5px;outline:none;
+  transition:border-color .2s ease, background .2s ease;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);background:rgba(255,255,255,0.04);}
+.field textarea{resize:vertical;min-height:90px;}
+.contact-side h3{margin-bottom:12px;}
+.contact-side p{font-size:14.5px;margin-bottom:22px;}
+.contact-line{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text-2);margin-bottom:12px;}
+.form-success{display:none;text-align:center;padding:40px 0;}
+.form-success.show{display:block;}
+.form-success .icon-box{margin:0 auto 16px;}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--border);padding:64px 0 32px;}
+.footer-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px;padding-bottom:44px;}
+.footer-brand p{font-size:13.5px;margin-top:14px;max-width:260px;}
+.footer-col h4{font-family:var(--font-m);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;font-weight:500;}
+.footer-col a{display:block;font-size:14px;color:var(--text-2);margin-bottom:11px;transition:color .2s ease;}
+.footer-col a:hover{color:var(--text);}
+.footer-bottom{
+  padding-top:26px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-bottom p{font-size:12.5px;color:var(--text-3);}
+.social-row{display:flex;gap:14px;}
+.social-row a{
+  width:36px;height:36px;border-radius:9px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s ease, background .2s ease;
+}
+.social-row a:hover{border-color:var(--border-strong);background:var(--card);}
+
+/* ---------- Focus visibility ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--cyan);outline-offset:2px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .grid-3{grid-template-columns:1fr 1fr;}
+  .split{grid-template-columns:1fr;gap:40px;}
+  .contact-panel{grid-template-columns:1fr;padding:32px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .nav-cta .btn-ghost{display:none;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .stats-strip{grid-template-columns:1fr 1fr;}
+  .stat:nth-child(3){border-left:none;}
+  .section{padding:80px 0;}
+  .hero{padding:150px 0 60px;}
+  .footer-top{grid-template-columns:1fr;}
+  .compare-table{font-size:13px;}
+  .compare-table th,.compare-table td{padding:12px 10px;}
+  .decision-branch{grid-template-columns:1fr;}
+}
+/* ========== SPLASH SCREEN ========== */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.splash-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.splash-content {
+  text-align: center;
+  max-width: 600px;
+}
+.splash-logo-container {
+  width: 100%;
+  height: 350px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.splash-logo-container svg {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 280px;
+}
+</style>
+</head>
+<body>
+
+<!-- ================= SPLASH SCREEN ================= -->
+<div class="splash-screen hidden" id="splashScreen">
+  <div class="splash-content">
+    <div class="splash-logo-container">
+      <svg id="splashLogo" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- V mark -->
+        <g id="vMark" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+          <path d="M60 40 L120 40 L200 200 L280 40 L340 40 L200 280 Z" fill="#14264C"></path>
+        </g>
+        
+        <!-- Blue tick -->
+        <line id="tick" x1="130" y1="80" x2="180" y2="160" stroke="#2E9BEA" stroke-width="12" stroke-linecap="round" style="transition: stroke-dashoffset 0.65s; stroke-dasharray: 100; stroke-dashoffset: 0; opacity: 1;"></line>
+        
+        <!-- Purple arrow -->
+        <polyline id="arrow" points="200,160 240,90 280,120 340,40" fill="none" stroke="#2E9BEA" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" style="transition: stroke-dashoffset 0.65s; stroke-dasharray: 150; stroke-dashoffset: 0; opacity: 1;"></polyline>
+        
+        <!-- Arrow head -->
+        <polygon id="arrowHead" points="360,20 350,50 330,35" fill="#2E9BEA" style="opacity: 1; transition: opacity 0.25s 0.55s;"></polygon>
+        
+        <!-- Halo -->
+        <circle id="halo" cx="200" cy="160" r="40" fill="none" stroke="#2E9BEA" opacity="1" style="transition:r 0.38s cubic-bezier(0.2,1.7,0.4,1),opacity 0.25s ease"></circle>
+        
+        <!-- Red dot -->
+        <g id="ballG" transform="translate(200,160)">
+          <g id="ballShape" transform="scale(1,1)"><circle r="20" fill="#F2503F"></circle></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<header id="header" class="">
+  <div class="wrap nav">
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#top" class="brand">
+      <img src="./VetoPoint AI — Enterprise AI Action Governance_files/logo1.png" alt="VetoPoint AI" class="brand-logo">
+    </a>
+    <nav class="nav-links">
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#solution">Product</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#how-it-works">How it works</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#features">Features</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#pricing">Pricing</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#customers">Customers</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#compare">Compare</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#team">Team</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#contact" class="btn btn-ghost btn-sm">Sign in</a>
+      <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#contact" class="btn btn-primary btn-sm">Request demo</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#solution">Product</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#how-it-works">How it works</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#features">Features</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#customers">Customers</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#compare">Compare</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#team">Team</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#faq">FAQ</a>
+    <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#contact" class="btn btn-primary" style="margin-top:12px;width:fit-content;">Request demo</a>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <span class="eyebrow">Enterprise AI Action Governance</span>
+      <h1>Others secure the prompt.<br><span class="accent">VetoPoint AI secures the action.</span></h1>
+      <p class="hero-sub">VetoPoint AI sits between your employees, AI assistants, and autonomous agents — reading intent, scoring risk, and holding the line before anything executes.</p>
+      <div class="hero-ctas">
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#contact" class="btn btn-primary">Request a demo</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#how-it-works" class="btn btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-note">No credit card · Deploys alongside ChatGPT, Claude, Gemini &amp; Copilot · SOC-2-ready architecture</div>
+    </div>
+
+    <!-- Signature gate diagram -->
+    <div class="gate-diagram reveal is-visible">
+      <svg viewBox="0 0 1000 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- paths -->
+        <path id="pathA" d="M 90 70 C 300 70, 340 130, 470 130" fill="none" stroke="rgba(148,163,184,0.25)" stroke-width="1.5"></path>
+        <path id="pathB" d="M 90 190 C 300 190, 340 130, 470 130" fill="none" stroke="rgba(148,163,184,0.25)" stroke-width="1.5"></path>
+        <path id="pathC1" d="M 530 130 C 660 130, 700 60, 860 60" fill="none" stroke="rgba(148,163,184,0.25)" stroke-width="1.5"></path>
+        <path id="pathC2" d="M 530 130 C 660 130, 700 130, 860 130" fill="none" stroke="rgba(148,163,184,0.25)" stroke-width="1.5"></path>
+        <path id="pathC3" d="M 530 130 C 660 130, 700 200, 860 200" fill="none" stroke="rgba(148,163,184,0.25)" stroke-width="1.5"></path>
+
+        <!-- source nodes -->
+        <g>
+          <rect x="20" y="50" width="70" height="40" rx="10" fill="var(--bg-elevated)" stroke="rgba(148,163,184,0.3)"></rect>
+          <text x="55" y="74" text-anchor="middle" class="gd-node-label" font-size="10">Employee</text>
+        </g>
+        <g>
+          <rect x="20" y="170" width="70" height="40" rx="10" fill="var(--bg-elevated)" stroke="rgba(148,163,184,0.3)"></rect>
+          <text x="55" y="194" text-anchor="middle" class="gd-node-label" font-size="10">AI Agent</text>
+        </g>
+
+        <!-- gate node -->
+        <g>
+          <rect x="470" y="90" width="60" height="80" rx="16" fill="url(#gateFill)" stroke="#2FD8EF" stroke-opacity="0.6"></rect>
+          <rect x="486" y="106" width="12" height="48" rx="3" fill="#0B0F19" stroke="#2FD8EF" stroke-opacity="0.5"></rect>
+          <rect x="502" y="106" width="12" height="48" rx="3" fill="#0B0F19" stroke="#2FD8EF" stroke-opacity="0.5"></rect>
+          <text x="500" y="190" text-anchor="middle" class="gd-node-label" font-size="10" fill="#2FD8EF">CHECKPOINT</text>
+        </g>
+        <defs>
+          <lineargradient id="gateFill" x1="470" y1="90" x2="530" y2="170" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#131C3E"></stop><stop offset="1" stop-color="#1B2550"></stop>
+          </lineargradient>
+        </defs>
+
+        <!-- outcome nodes -->
+        <g>
+          <rect x="860" y="40" width="120" height="40" rx="10" fill="rgba(61,220,151,0.07)" stroke="#3DDC97" stroke-opacity="0.45"></rect>
+          <text x="920" y="58" text-anchor="middle" class="gd-node-label" font-size="10" fill="#3DDC97">EXECUTE</text>
+          <text x="920" y="71" text-anchor="middle" class="gd-node-sub" font-size="8.5">low risk · automatic</text>
+        </g>
+        <g>
+          <rect x="860" y="110" width="120" height="40" rx="10" fill="rgba(245,184,78,0.07)" stroke="#F5B84E" stroke-opacity="0.45"></rect>
+          <text x="920" y="128" text-anchor="middle" class="gd-node-label" font-size="10" fill="#F5B84E">HUMAN APPROVAL</text>
+          <text x="920" y="141" text-anchor="middle" class="gd-node-sub" font-size="8.5">elevated risk · routed</text>
+        </g>
+        <g>
+          <rect x="860" y="180" width="120" height="40" rx="10" fill="rgba(240,97,107,0.07)" stroke="#F0616B" stroke-opacity="0.45"></rect>
+          <text x="920" y="198" text-anchor="middle" class="gd-node-label" font-size="10" fill="#F0616B">BLOCK</text>
+          <text x="920" y="211" text-anchor="middle" class="gd-node-sub" font-size="8.5">policy violation</text>
+        </g>
+
+        <!-- traveling pulses -->
+        <circle r="3.5" fill="#2FD8EF" style="offset-path:path(&#39;M 90 70 C 300 70, 340 130, 470 130&#39;);" class="pulse"></circle>
+        <circle r="3.5" fill="#9B6BFF" style="offset-path:path(&#39;M 90 190 C 300 190, 340 130, 470 130&#39;);" class="pulse pulse-b"></circle>
+        <circle r="3.5" fill="#3DDC97" style="offset-path:path(&#39;M 530 130 C 660 130, 700 60, 860 60&#39;);" class="pulse" style2=""></circle>
+      </svg>
+    </div>
+
+    <div class="stats-strip reveal is-visible">
+      <div class="stat"><div class="num" data-count="50">50ms</div><div class="label">Median decision latency</div></div>
+      <div class="stat"><div class="num" data-count="100">100%</div><div class="label">Actions logged &amp; traceable</div></div>
+      <div class="stat"><div class="num">4</div><div class="label">LLM &amp; agent platforms covered</div></div>
+      <div class="stat"><div class="num">1</div><div class="label">Checkpoint for every action</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="industries-strip">
+  <div class="wrap">
+    <p style="text-align:center;font-size:12.5px;color:var(--text-3);font-family:var(--font-m);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;">Built for the industries that can't afford to guess</p>
+    <div class="label-row">
+      <span class="chip">Finance</span>
+      <span class="chip">Healthcare</span>
+      <span class="chip">Legal</span>
+      <span class="chip">Insurance</span>
+      <span class="chip">Government</span>
+      <span class="chip">Banking</span>
+      <span class="chip">Enterprise SaaS</span>
+    </div>
+  </div>
+</div>
+
+<div class="gate-divider" style="margin-top:60px;">
+  <div class="line"></div>
+  <div class="gate-node status-block"><span class="dot"></span>The gap</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= PROBLEM ================= -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Problem</span>
+      <h2>AI adoption moved faster than AI governance did</h2>
+      <p>Employees paste confidential data into ChatGPT, Claude, Gemini and Copilot every day. Agents are starting to act on their own. Most organizations have no checkpoint between intent and execution — and no record of what happened when it mattered.</p>
+    </div>
+    <div class="card-grid grid-3 reveal-stagger">
+      <div class="card risk-card">
+        <div class="icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0616B" stroke-width="1.8"><path d="M12 2l9 4.5v6c0 5-3.8 8.4-9 9.5-5.2-1.1-9-4.5-9-9.5v-6L12 2z"></path><path d="M9.5 12l1.8 1.8L15 10"></path></svg>
+        </div>
+        <h3>Data leaks</h3>
+        <p>Confidential documents, source code, and customer data pasted into AI tools with no oversight.</p>
+      </div>
+      <div class="card risk-card">
+        <div class="icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0616B" stroke-width="1.8"><path d="M9 3h6l1 4h4v2h-2l-1.6 12.2A2 2 0 0114.4 23H9.6a2 2 0 01-2-1.8L6 9H4V7h4l1-4z"></path></svg>
+        </div>
+        <h3>Compliance violations</h3>
+        <p>GDPR, HIPAA, and the EU AI Act don't pause for automation. Unlogged AI actions are unauditable actions.</p>
+      </div>
+      <div class="card risk-card">
+        <div class="icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0616B" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5"></path><circle cx="12" cy="16" r="0.6" fill="#F0616B"></circle></svg>
+        </div>
+        <h3>Hallucinations that act</h3>
+        <p>A wrong answer is a mistake. A wrong action taken by an agent is an incident with real operational cost.</p>
+      </div>
+      <div class="card risk-card">
+        <div class="icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0616B" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"></path></svg>
+        </div>
+        <h3>Financial losses</h3>
+        <p>Autonomous actions that touch payments, contracts, or trading systems carry direct financial exposure.</p>
+      </div>
+      <div class="card risk-card">
+        <div class="icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0616B" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5L12 3z"></path></svg>
+        </div>
+        <h3>Reputational damage</h3>
+        <p>Customers and regulators don't distinguish between "the AI did it" and "the company did it."</p>
+      </div>
+      <div class="card risk-card">
+        <div class="icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F0616B" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M9 3a4 4 0 100 8 4 4 0 000-8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg>
+        </div>
+        <h3>Shadow AI</h3>
+        <p>Tools security never approved, used by teams security doesn't know about, on data security can't see.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node status-review"><span class="dot"></span>The checkpoint</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= SOLUTION ================= -->
+<section class="section" id="solution">
+  <div class="wrap split">
+    <div class="reveal">
+      <span class="eyebrow">The Solution</span>
+      <h2 style="margin-top:14px;">The checkpoint AI never had</h2>
+      <p style="margin-top:18px;font-size:16px;">Traditional security tools protect data at rest and prompts in transit. VetoPoint AI governs what happens next. It sits in the path of every AI-generated action, understands what that action is actually trying to do, and decides — in real time — whether it runs, waits for a human, or never happens at all.</p>
+      <p style="margin-top:14px;font-size:16px;">No blocking AI outright. No rubber-stamping it either. Just a governed, auditable middle ground enterprises can actually adopt.</p>
+      <div style="margin-top:28px;">
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#how-it-works" class="btn btn-ghost">Walk through the pipeline</a>
+      </div>
+    </div>
+    <div class="solution-visual reveal">
+      <div class="log-line"><span class="tag tag-allow">ALLOW</span><span class="action">Summarize Q3 sales deck</span><span class="meta">14ms</span></div>
+      <div class="log-line"><span class="tag tag-review">REVIEW</span><span class="action">Send contract to external counsel</span><span class="meta">pending</span></div>
+      <div class="log-line"><span class="tag tag-block">BLOCK</span><span class="action">Export customer PII to CSV</span><span class="meta">policy: DATA-04</span></div>
+      <div class="log-line"><span class="tag tag-allow">ALLOW</span><span class="action">Draft internal Slack update</span><span class="meta">9ms</span></div>
+      <div class="log-line"><span class="tag tag-review">REVIEW</span><span class="action">Agent: modify production DB record</span><span class="meta">pending</span></div>
+      <div class="log-line" style="margin-bottom:0;"><span class="tag tag-block">BLOCK</span><span class="action">Agent: wire transfer &gt; $10,000</span><span class="meta">policy: FIN-01</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node"><span class="dot"></span>How it works</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pipeline</span>
+      <h2>Five steps. Every single action.</h2>
+      <p>Every request — human or agent — passes through the same governed sequence before it ever reaches your systems.</p>
+    </div>
+    <div class="pipeline-track reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body"><h3>Intercept</h3><p>The request from an employee or AI agent is captured before it reaches company systems — no action bypasses the checkpoint.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body"><h3>Recognize intent</h3><p>NLP reads what the action is actually trying to do, not just the words used to ask for it.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body"><h3>Score the risk</h3><p>A dynamic model scores data sensitivity, system impact, and context — recalculated for every single request.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body"><h3>Verify policy</h3><p>The scored action is checked against your organization's rules and the regulatory frameworks that apply to it.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h3>Decide</h3>
+          <p>Safe actions execute automatically. Risky actions stop — and wait for a human.</p>
+          <div class="decision-branch">
+            <div class="branch-card branch-allow"><div class="lbl">Safe → Execute</div><p>Cleared instantly, logged for the record.</p></div>
+            <div class="branch-card branch-block"><div class="lbl">Risky → Block / Human approval required</div><p>Held at the gate until a person signs off.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node status-allow"><span class="dot"></span>Capabilities</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Features</span>
+      <h2>Governance, not friction</h2>
+      <p>Everything needed to let AI move fast inside your organization — without losing control of what it's allowed to do.</p>
+    </div>
+    <div class="card-grid grid-3 reveal-stagger">
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg></div>
+        <h3>Intent recognition</h3>
+        <p>Understands what an action is trying to accomplish, using NLP tuned for enterprise workflows.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"></path></svg></div>
+        <h3>Dynamic risk scoring</h3>
+        <p>Recalculates risk per request based on data sensitivity, system impact, and live context.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 9h8M8 13h5"></path></svg></div>
+        <h3>Policy engine</h3>
+        <p>Codify your organization's rules once — VetoPoint AI applies them consistently across every tool and agent.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M9 3a4 4 0 100 8 4 4 0 000-8z"></path><path d="M18 8l2 2 4-4"></path></svg></div>
+        <h3>Human-in-the-loop approvals</h3>
+        <p>Elevated-risk actions route to the right approver instantly, with full context attached.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"></path></svg></div>
+        <h3>Complete audit trail</h3>
+        <p>Every decision — allowed, blocked, or escalated — is logged and ready for review before you're asked for it.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M12 2l9 4.5v6c0 5-3.8 8.4-9 9.5-5.2-1.1-9-4.5-9-9.5v-6L12 2z"></path></svg></div>
+        <h3>EU AI Act mapping</h3>
+        <p>Risk tiers and controls mapped directly to EU AI Act obligations, kept current as guidance evolves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BENEFITS ================= -->
+<section class="section" style="background:var(--bg-1);" id="benefits">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Benefits</span>
+      <h2>What changes once the checkpoint is in place</h2>
+    </div>
+    <div class="reveal-stagger">
+      <div class="benefit-row">
+        <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="1.8"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div><h3>Confidential data stops leaving quietly</h3><p>Sensitive actions are caught at the checkpoint, before information reaches somewhere it shouldn't.</p></div>
+      </div>
+      <div class="benefit-row">
+        <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="1.8"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div><h3>Approvals happen in seconds, not meetings</h3><p>Risky actions route straight to the right approver — no waiting on a review committee.</p></div>
+      </div>
+      <div class="benefit-row">
+        <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="1.8"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div><h3>One log, every action, always audit-ready</h3><p>Regulators and auditors get a complete record without a scramble to reconstruct one.</p></div>
+      </div>
+      <div class="benefit-row">
+        <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="1.8"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div><h3>Agents ship without shipping risk</h3><p>Teams can put autonomous agents into production because the checkpoint — not trust alone — controls what they're allowed to do.</p></div>
+      </div>
+      <div class="benefit-row">
+        <div class="icon-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="1.8"><path d="M20 6L9 17l-5-5"></path></svg></div>
+        <div><h3>AI adoption speeds up, not down</h3><p>When leadership trusts the guardrails, they stop saying no to AI tools by default.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Pricing</span>
+      <h2>Pricing structure</h2>
+      <p>Flexible entry points for pilots, growing teams, and regulated organisations that need human-in-the-loop governance at production scale.</p>
+    </div>
+    <div class="pricing-stack reveal-stagger">
+      <div class="card pricing-banner">
+        <div class="pricing-banner-head">
+          <div>
+            <div class="role">Paid pilot</div>
+            <h3>VetoPoint Pilot — €25,000</h3>
+          </div>
+          <div class="price-pill">Three-month controlled deployment</div>
+        </div>
+        <p>Designed for one department to validate governance, approvals, and auditability before a larger rollout.</p>
+        <ul class="feature-list">
+          <li>Up to three AI agents</li>
+          <li>Three approval workflows</li>
+          <li>Risk analysis</li>
+          <li>Policy enforcement</li>
+          <li>Audit trail</li>
+          <li>Management dashboard</li>
+          <li>Pilot evaluation report</li>
+        </ul>
+        <p class="price-note">The pilot fee can be credited toward the first annual contract, encouraging conversion.</p>
+      </div>
+
+      <div class="section-head reveal" style="margin-bottom:24px;">
+        <span class="eyebrow">Annual subscription plans</span>
+        <h2 style="font-size:clamp(24px,3vw,32px);">Choose the level of protection that fits your organisation</h2>
+      </div>
+
+      <div class="card-grid grid-3">
+        <article class="card pricing-plan">
+          <div class="plan-title">
+            <h3>VetoPoint Core</h3>
+            <div class="plan-price">€40,000</div>
+            <p class="plan-meta">Small regulated companies or one department</p>
+          </div>
+          <ul class="feature-list">
+            <li>5 protected AI agents</li>
+            <li>250,000 reviewed actions annually</li>
+            <li>Standard policy templates</li>
+            <li>One approval workflow</li>
+            <li>Basic dashboard</li>
+            <li>Email support</li>
+          </ul>
+        </article>
+
+        <article class="card pricing-plan featured">
+          <div class="plan-title">
+            <h3>VetoPoint Business</h3>
+            <div class="plan-price">€95,000</div>
+            <p class="plan-meta">Medium organisations with several AI agents</p>
+          </div>
+          <ul class="feature-list">
+            <li>25 protected AI agents</li>
+            <li>2 million reviewed actions annually</li>
+            <li>Custom organisational policies</li>
+            <li>Multiple approval levels</li>
+            <li>Compliance reporting</li>
+            <li>Advanced analytics</li>
+            <li>Priority support</li>
+          </ul>
+        </article>
+
+        <article class="card pricing-plan">
+          <div class="plan-title">
+            <h3>VetoPoint Enterprise</h3>
+            <div class="plan-price">€250,000+</div>
+            <p class="plan-meta">Banks, governments and large corporations</p>
+          </div>
+          <ul class="feature-list">
+            <li>Custom number of AI agents</li>
+            <li>High-volume action processing</li>
+            <li>Private-cloud or on-premises deployment</li>
+            <li>Integration with banking and corporate systems</li>
+            <li>Custom risk models</li>
+            <li>Role-based access</li>
+            <li>Regulatory reports</li>
+            <li>Dedicated account manager</li>
+            <li>Service-level agreement</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node"><span class="dot"></span>Who it's for</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= CUSTOMERS ================= -->
+<section class="section" id="customers">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Target customers</span>
+      <h2>Built for the people who own the risk</h2>
+      <p>VetoPoint AI is bought by the leaders accountable for how AI is used inside the organization — and deployed by the teams that keep it running.</p>
+    </div>
+    <div class="card-grid grid-2 reveal-stagger">
+      <div class="card persona-card">
+        <div class="role">CISO</div>
+        <h3>Chief Information Security Officer</h3>
+        <p>A governed layer over every AI action, without slowing down the teams that need AI to do their jobs.</p>
+      </div>
+      <div class="card persona-card">
+        <div class="role">CCO</div>
+        <h3>Chief Compliance Officer</h3>
+        <p>A standing audit trail mapped to the regulations you're already accountable for.</p>
+      </div>
+      <div class="card persona-card">
+        <div class="role">IT Director</div>
+        <h3>IT Director</h3>
+        <p>Visibility into shadow AI usage and a single policy layer across every tool employees have adopted.</p>
+      </div>
+      <div class="card persona-card">
+        <div class="role">CIO</div>
+        <h3>Chief Information Officer</h3>
+        <p>A way to say yes to AI adoption across the business, backed by controls the board can understand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="section" style="background:var(--bg-1);" id="compare">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Comparison</span>
+      <h2>Traditional security stops at the prompt</h2>
+    </div>
+    <div class="reveal" style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr><th></th><th>Traditional security</th><th class="col-veto">VetoPoint AI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>What it protects</td><td class="trad">Data &amp; prompts</td><td class="veto">Actions &amp; outcomes</td></tr>
+          <tr><td>When it acts</td><td class="trad">After the fact, via logs</td><td class="veto">Before execution, in real time</td></tr>
+          <tr><td>Risk model</td><td class="trad">Static rules</td><td class="veto">Dynamic, contextual scoring</td></tr>
+          <tr><td>Human role</td><td class="trad">Alerted after something happens</td><td class="veto">Approves before it happens</td></tr>
+          <tr><td>Coverage</td><td class="trad">Prompts sent to an LLM</td><td class="veto">Prompts + autonomous agent actions</td></tr>
+          <tr><td>Compliance evidence</td><td class="trad">Manually assembled</td><td class="veto">Continuous, built-in audit trail</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node status-allow"><span class="dot"></span>Responsible AI</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= RESPONSIBLE AI ================= -->
+<section class="section" id="responsible">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Responsible AI</span>
+      <h2>Responsible by design</h2>
+      <p>Governing AI actions means holding ourselves to the same standard we hold your systems to. Five commitments sit underneath every decision VetoPoint AI makes.</p>
+    </div>
+    <div class="card-grid grid-3 reveal-stagger">
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M12 2l9 4.5v6c0 5-3.8 8.4-9 9.5-5.2-1.1-9-4.5-9-9.5v-6L12 2z"></path><rect x="9" y="11" width="6" height="5" rx="1"></rect><path d="M10.5 11V9.5a1.5 1.5 0 013 0V11"></path></svg></div>
+        <h3>Data privacy</h3>
+        <p>GDPR-first by design. Prompts and confidential data are inspected inside your own environment and are never stored, sold, or used to train external models.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M12 3v18M5 21h14"></path><path d="M12 5L5 8l3 4a3 3 0 01-6 0l3-4M12 5l7 3-3 4a3 3 0 006 0l-3-4"></path></svg></div>
+        <h3>Bias &amp; fairness</h3>
+        <p>The risk-scoring model is continuously audited so that every action is evaluated on the same terms — no team, group, or individual is scored unfairly.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+        <h3>Transparency</h3>
+        <p>Every decision — allow, hold, or block — is logged with the reason and the exact policy that triggered it, so people can always see why an action was governed the way it was.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M9 3a4 4 0 100 8 4 4 0 000-8z"></path><path d="M17 8l2 2 4-4"></path></svg></div>
+        <h3>Human oversight</h3>
+        <p>VetoPoint AI never has the final word alone. Elevated-risk actions are routed to a human approver, keeping people in control of what AI is allowed to do.</p>
+      </div>
+      <div class="card">
+        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"></rect><path d="M8 9h8"></path><rect x="9.5" y="12.5" width="5" height="4" rx="1"></rect><path d="M10.5 12.5v-1a1.5 1.5 0 013 0v1"></path></svg></div>
+        <h3>Responsible use of information</h3>
+        <p>Sensitive data is redacted or withheld before it can be misused, and access is scoped to the task at hand — the right information reaches the right action, and nothing more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node"><span class="dot"></span>Team</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= TEAM ================= -->
+<section class="section" id="team">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center;">Our team</span>
+      <h2>Trinorte</h2>
+      <p>Three founders building the governance layer we think every enterprise AI rollout will need.</p>
+    </div>
+    <div class="card-grid grid-3 reveal-stagger">
+      <div class="card team-card">
+        <div class="avatar">B</div>
+        <h3>Brais Muiño Otero</h3>
+        <div class="role">AI &amp; Product Lead</div>
+      </div>
+      <div class="card team-card">
+        <div class="avatar">A</div>
+        <h3>Adrián Garrote Camoira</h3>
+        <div class="role">Team Leader &amp; Business Strategist</div>
+      </div>
+      <div class="card team-card">
+        <div class="avatar">R</div>
+        <h3>Rubina Danilova</h3>
+        <div class="role">Marketing &amp; Presentation Lead</div>
+      </div>
+    </div>
+    <p class="team-note center">Based in A Coruña, Galicia. Building for security and compliance teams worldwide.</p>
+  </div>
+</section>
+
+<div class="gate-divider">
+  <div class="line"></div>
+  <div class="gate-node"><span class="dot"></span>FAQ</div>
+  <div class="line"></div>
+</div>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions security teams ask first</h2>
+    </div>
+    <div class="reveal" id="faqList">
+      <div class="faq-item open">
+        <div class="faq-q"><span>What exactly does VetoPoint AI govern?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Any action initiated by an employee through an AI assistant, or by an autonomous agent acting on its own — from sending a document externally to writing to a production system.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>How is this different from a DLP or prompt-filtering tool?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>DLP and prompt tools inspect content going in or out. VetoPoint AI evaluates the action itself — what it would do if executed — and can hold or block it before it happens.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Will this slow down AI adoption?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>The goal is the opposite. Low-risk actions clear automatically in milliseconds — only the actions that genuinely warrant a second look are held for a human.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>What does "EU AI Act compliant" mean here?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>VetoPoint AI's risk tiers and approval workflows are mapped to the Act's obligations for high-risk AI use cases, and its audit trail is built to produce the evidence regulators ask for.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Which AI tools and agents does VetoPoint AI support?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>VetoPoint AI is designed to sit alongside ChatGPT, Claude, Gemini, Microsoft Copilot, and custom or third-party autonomous agents.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>How long does deployment take?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>We scope this with your security team based on which tools and systems VetoPoint AI needs to sit in front of. Request a demo and we'll walk through it.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center;">Contact</span>
+      <h2>See the checkpoint in action</h2>
+      <p>Tell us about your environment and we'll show you exactly how VetoPoint AI would govern it.</p>
+    </div>
+    <div class="contact-panel reveal">
+      <div class="contact-side">
+        <h3>Request an enterprise demo</h3>
+        <p>A 30-minute walkthrough with your security and compliance stakeholders — no generic sales deck.</p>
+        <div class="contact-line">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+          hello@vetopoint.ai
+        </div>
+        <div class="contact-line">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2FD8EF" stroke-width="1.8"><path d="M12 21s-7-6-7-11a7 7 0 1114 0c0 5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+          A Coruña, Galicia, Spain
+        </div>
+      </div>
+      <div>
+        <form id="demoForm">
+          <div class="field"><label for="fname">Full name</label><input id="fname" type="text" placeholder="Jane Cooper" required=""></div>
+          <div class="field"><label for="femail">Work email</label><input id="femail" type="email" placeholder="jane@company.com" required=""></div>
+          <div class="field"><label for="fcompany">Company</label><input id="fcompany" type="text" placeholder="Company name" required=""></div>
+          <div class="field">
+            <label for="frole">Role</label>
+            <select id="frole">
+              <option>CISO</option><option>CCO / Compliance</option><option>IT Director</option><option>CIO</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label for="fmsg">What are you looking to govern?</label><textarea id="fmsg" placeholder="e.g. Copilot rollout across finance, plus two internal agents"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:6px;">Request a demo</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="icon-box" style="margin:0 auto 16px;background:rgba(61,220,151,0.14);border-color:rgba(61,220,151,0.4);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DDC97" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg></div>
+          <h3>Request received</h3>
+          <p>Someone from VetoPoint AI will reach out within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#top" class="brand">
+          <img src="./VetoPoint AI — Enterprise AI Action Governance_files/logo.png" alt="VetoPoint AI" class="brand-logo brand-logo-footer">
+        </a>
+        <p>Enterprise AI action governance, by Trinorte. Others secure the prompt — VetoPoint AI secures the action.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#solution">Overview</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#how-it-works">How it works</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#features">Features</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#compare">Comparison</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#team">Team</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#customers">Customers</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#responsible">Responsible AI</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#faq">FAQ</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#">Privacy policy</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#">Terms of service</a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 VetoPoint AI by Trinorte. All rights reserved.</p>
+      <div class="social-row">
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 11v5M8 8v.01M12 16v-5M12 11c0-1.5 1-2.5 2.5-2.5S17 9.5 17 11v5"></path></svg></a>
+        <a href="file:///C:/Users/ramir/OneDrive%20-%20Universidade%20da%20Coru%C3%B1a/GCED%20UDC/Artificial%20Intelligence%20Accelerator%20Program/VetoPoint%20AI/VetoPoint%20AI%20Submission/VetoPoint%20AI%20Website.html#" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.8"><path d="M9 19c-4 1-4-2-6-2m12 4v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 00-1.3-3.2 4.2 4.2 0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 00-6.2 0C6.5 3 5.4 3.3 5.4 3.3a4.2 4.2 0 00-.1 3.2A4.6 4.6 0 004 9.7c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"></path></svg></a>
+        <a href="mailto:hello@vetopoint.ai" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll state
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 12);
+}, {passive:true});
+
+// Mobile menu
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+revealEls.forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Contact form (front-end only demo state)
+const demoForm = document.getElementById('demoForm');
+demoForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  demoForm.style.display = 'none';
+  document.getElementById('formSuccess').classList.add('show');
+});
+
+// Animated splash screen logo
+(() => {
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLogo);
+  } else {
+    initLogo();
+  }
+
+  function initLogo() {
+    const ballG = document.getElementById('ballG');
+    const ballShape = document.getElementById('ballShape');
+    const halo = document.getElementById('halo');
+    const vMark = document.getElementById('vMark');
+    const tick = document.getElementById('tick');
+    const arrow = document.getElementById('arrow');
+    const arrowHead = document.getElementById('arrowHead');
+    const splashScreen = document.getElementById('splashScreen');
+
+    // Verify elements exist
+    if (!ballG || !tick || !arrow) {
+      console.log('Logo elements not found');
+      setTimeout(() => { if(splashScreen) splashScreen.classList.add('hidden'); }, 1000);
+      return;
+    }
+
+    const REST = {x:200, y:160};
+    const START = {x:300, y:260};
+    const ARC_H = 150;
+    let animating = false;
+
+    const setBall = (x,y,sx=1,sy=1) => {
+      ballG.setAttribute('transform',`translate(${x},${y})`);
+      ballShape.setAttribute('transform',`scale(${sx},${sy})`);
+    };
+
+    function jump(from, to, {dur=950, height=ARC_H, squash=true} = {}){
+      return new Promise(res => {
+        const t0 = performance.now();
+        function frame(now){
+          let t = Math.min(1, (now - t0) / dur);
+          const x = from.x + (to.x - from.x) * t;
+          const y = from.y + (to.y - from.y) * t - height * 4 * t * (1 - t);
+          const v = Math.abs(1 - 2*t);
+          setBall(x, y, 1 - 0.10*v, 1 + 0.14*v);
+          if(t < 1){ requestAnimationFrame(frame); }
+          else if(squash){
+            setBall(to.x, to.y + 3, 1.25, 0.72);
+            setTimeout(()=>{ setBall(to.x, to.y, 0.95, 1.06);
+              setTimeout(()=>{ setBall(to.x, to.y); res(); }, 70);
+            }, 85);
+          } else { setBall(to.x, to.y); res(); }
+        }
+        requestAnimationFrame(frame);
+      });
+    }
+
+    async function playAnimation(){
+      if(animating) return;
+      animating = true;
+      
+      // Reset
+      tick.style.strokeDashoffset = '100';
+      arrow.style.strokeDashoffset = '150';
+      arrowHead.style.opacity = '0';
+      halo.setAttribute('r','0');
+      halo.setAttribute('opacity','0');
+      setBall(START.x, START.y);
+
+      // Show V mark
+      vMark.style.opacity = '1';
+      vMark.style.transform = 'translateY(0)';
+      await new Promise(r => setTimeout(r, 550));
+
+      // Jump sequence
+      await jump(START, {x:260, y:260}, {dur:340, height:70, squash:false});
+      await jump({x:260, y:260}, {x:230, y:260}, {dur:340, height:80, squash:false});
+      await jump({x:230, y:260}, REST, {dur:1000, height:ARC_H});
+
+      // Lock in place
+      setBall(REST.x, REST.y);
+      halo.setAttribute('opacity','1');
+      halo.setAttribute('r','40');
+      tick.style.strokeDashoffset = '0';
+      tick.style.opacity = '1';
+      arrow.style.strokeDashoffset = '0';
+      arrow.style.opacity = '1';
+      arrowHead.style.opacity = '1';
+
+      // Hide splash after delay
+      await new Promise(r => setTimeout(r, 1200));
+      if(splashScreen) splashScreen.classList.add('hidden');
+    }
+
+    playAnimation();
+  }
+})();
+</script>
+
+
+
+</body></html>

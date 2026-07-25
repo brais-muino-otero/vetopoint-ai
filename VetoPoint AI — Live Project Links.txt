@@ -1,0 +1,24 @@
+VetoPoint AI — Live Project Links
+
+Below are the direct links to the live, functional assets for the VetoPoint AI project submission. These are hosted externally to ensure proper rendering of the HTML, CSS, and interactive elements.
+
+1. Enterprise AI Action Governance (Main Landing Page)
+Link: https://attentoai.com/vetopoint/
+
+2. Governance Console Dashboard
+Link: https://attentoai.com/vetopoint/console.html
+
+3. Interactive Business Model
+Link: https://attentoai.com/vetopoint/business-model.html
+
+4. Investor Pitch Navigator
+Link: https://attentoai.com/vetopoint/pitch.html
+
+5. Project Presentation
+Link: https://attentoai.com/vetopoint/pr.html
+
+6. Final Business Plan
+Link: https://attentoai.com/vetopoint/plan.html
+
+7. Promotional Video
+Link: https://www.youtube.com/watch?v=VPr0d0HLWWo
