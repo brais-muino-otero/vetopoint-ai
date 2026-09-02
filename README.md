@@ -52,7 +52,7 @@ We use an Enterprise SaaS model, decoupled from compute costs:
 ### 📂 Project Assets & Live Demos
 This repository acts as the central hub for our project. You can explore our live materials here:
 
-*   🌐 **Live Platform Landing:** [attentoai.com/vetopoint](https://attentoai.com/vetopoint/)
+*   🌐 **Live Platform Landing:** [Open the live platform](https://attentoai.com/vetopoint/)
 *   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Dashboard UI / Console:** [View the live Console demo](https://attentoai.com/vetopoint/console.html)
 *   📄 **Interactive Business Plan:** [Read the interactive plan](https://attentoai.com/vetopoint/plan.html)
@@ -112,7 +112,7 @@ Usamos un modelo SaaS Empresarial, desvinculado de los costes de computación:
 ### 📂 Enlaces y Demos del Proyecto
 Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes acceder a las versiones en vivo:
 
-*   🌐 **Página Principal:** [attentoai.com/vetopoint](https://attentoai.com/vetopoint/)
+*   🌐 **Página Principal:** [Abrir la plataforma en vivo](https://attentoai.com/vetopoint/)
 *   🖥️ **Sala de Presentaciones VetoPoint:** [Explora la presentación interactiva](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Consola del Panel de Control:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
 *   📄 **Plan de Negocio Interactivo:** [Leer el plan interactivo](https://attentoai.com/vetopoint/plan.html)
