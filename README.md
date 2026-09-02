@@ -2,6 +2,8 @@
 > *Others secure the prompt. VetoPoint secures the action.*
 > *Otros aseguran el prompt. VetoPoint asegura la acción.*
 
+[![Live platform · Plataforma en vivo](https://img.shields.io/badge/Live_platform_·_Plataforma_en_vivo-VetoPoint-2E6BE6?style=for-the-badge)](https://attentoai.com/vetopoint/)
+
 🌍 **Choose your language / Elige tu idioma:**
 * [🇬🇧 Read in English](#-english-version)
 * [🇪🇸 Leer en Español](#-versión-en-español)
@@ -50,12 +52,12 @@ We use an Enterprise SaaS model, decoupled from compute costs:
 ### 📂 Project Assets & Live Demos
 This repository acts as the central hub for our project. You can explore our live materials here:
 
-*   🌐 **Live Platform Landing:** [attentoai.com/vetopoint/](https://attentoai.com/vetopoint/)
-*   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation here](https://attentoai.com/vetopoint/pitch.html)
-*   📊 **Dashboard UI / Console:** [View the live Console Demo](https://attentoai.com/vetopoint/console.html)
-*   📄 **Interactive Business Plan:** [attentoai.com/vetopoint/plan.html](https://attentoai.com/vetopoint/plan.html)
-*   🎯 **Project Presentation (PR):** [attentoai.com/vetopoint/pr.html](https://attentoai.com/vetopoint/pr.html)
-*   🎨 **Brand Guidelines:** [attentoai.com/vetopoint/branding.html](https://attentoai.com/vetopoint/branding.html)
+*   🌐 **Live Platform Landing:** [attentoai.com/vetopoint](https://attentoai.com/vetopoint/)
+*   🖥️ **VetoPoint Pitch Room:** [Explore the interactive presentation](https://attentoai.com/vetopoint/pitch.html)
+*   📊 **Dashboard UI / Console:** [View the live Console demo](https://attentoai.com/vetopoint/console.html)
+*   📄 **Interactive Business Plan:** [Read the interactive plan](https://attentoai.com/vetopoint/plan.html)
+*   🎯 **Project Presentation (PR):** [Open the project presentation](https://attentoai.com/vetopoint/pr.html)
+*   🎨 **Brand Guidelines:** [See the brand guidelines](https://attentoai.com/vetopoint/branding.html)
 *   🎬 **Promotional Video:** [Watch on YouTube](https://www.youtube.com/watch?v=VPr0d0HLWWo)
 
 ### 👥 Team Trinorte
@@ -110,12 +112,12 @@ Usamos un modelo SaaS Empresarial, desvinculado de los costes de computación:
 ### 📂 Enlaces y Demos del Proyecto
 Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes acceder a las versiones en vivo:
 
-*   🌐 **Página Principal:** [attentoai.com/vetopoint/](https://attentoai.com/vetopoint/)
-*   🖥️ **Sala de Presentaciones VetoPoint:** [Explora la presentación interactiva aquí](https://attentoai.com/vetopoint/pitch.html)
+*   🌐 **Página Principal:** [attentoai.com/vetopoint](https://attentoai.com/vetopoint/)
+*   🖥️ **Sala de Presentaciones VetoPoint:** [Explora la presentación interactiva](https://attentoai.com/vetopoint/pitch.html)
 *   📊 **Consola del Panel de Control:** [Ver la demo de la consola en vivo](https://attentoai.com/vetopoint/console.html)
-*   📄 **Plan de Negocio Interactivo:** [attentoai.com/vetopoint/plan.html](https://attentoai.com/vetopoint/plan.html)
-*   🎯 **Presentación del Proyecto (PR):** [attentoai.com/vetopoint/pr.html](https://attentoai.com/vetopoint/pr.html)
-*   🎨 **Guía de Marca:** [attentoai.com/vetopoint/branding.html](https://attentoai.com/vetopoint/branding.html)
+*   📄 **Plan de Negocio Interactivo:** [Leer el plan interactivo](https://attentoai.com/vetopoint/plan.html)
+*   🎯 **Presentación del Proyecto (PR):** [Abrir la presentación del proyecto](https://attentoai.com/vetopoint/pr.html)
+*   🎨 **Guía de Marca:** [Ver la guía de marca](https://attentoai.com/vetopoint/branding.html)
 *   🎬 **Vídeo Promocional:** [Ver en YouTube](https://www.youtube.com/watch?v=VPr0d0HLWWo)
 
 ### 👥 Equipo Trinorte
