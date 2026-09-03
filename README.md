@@ -63,9 +63,9 @@ This repository acts as the central hub for our project. You can explore our liv
 ### 👥 Team Trinorte
 *We are not asking businesses to trust another AI. We are giving them the infrastructure to decide when AI can be trusted to act.*
 
-*   **Adrián Garrote Camoira** - Team Leader & Business Strategist (Business model, governance, and enterprise value).
-*   **Brais Muiño Otero** - AI & Product Lead (AI-product design, technical architecture, and implementation).
-*   **Rubina Danilova** - Marketing & Presentation Lead (Communication, visual identity, and investor-style pitch delivery).
+*   **Brais Muiño Otero** – AI & Product Lead — [@brais-muino-otero](https://github.com/brais-muino-otero)
+*   **Adrián Garrote Camoira** – Team Leader & Business Strategist
+*   **Rubina Danilova** – Marketing & Presentation Lead
 
 ---
 ---
@@ -123,6 +123,6 @@ Este repositorio actúa como centro neurálgico del proyecto. Desde aquí puedes
 ### 👥 Equipo Trinorte
 *No pedimos a las empresas que confíen en otra IA. Les damos la infraestructura para decidir cuándo se puede confiar en que la IA actúe.*
 
-*   **Brais Muiño Otero** – AI & Product Lead — [@brais-muino-otero](https://github.com/brais-muino-otero)
-*   **Adrián Garrote Camoira** – Team Leader & Business Strategist
-*   **Rubina Danilova** – Marketing & Presentation Lead
+*   **Adrián Garrote Camoira** - Líder de Equipo y Estratega de Negocio (Modelo de negocio, gobernanza y valor empresarial).
+*   **Brais Muiño Otero** - Líder de IA y Producto (Diseño del producto, arquitectura técnica e implementación).
+*   **Rubina Danilova** - Líder de Marketing y Presentación (Comunicación, identidad visual y entrega de presentaciones para inversores).
